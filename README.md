@@ -10,6 +10,32 @@
 
 ## Usage
 
+### Plan A
+
+```julia
+using ReachabilityModels, ReachabilityAnalysis, Plots
+
+prob = fetch_model("vanderpol") # initial-value problem
+
+sol = solve(prob, T=1.0);
+solz = overapproximate(sol, Zonotope);
+
+plot(sol, vars=(1, 2))
+```
+
+or
+
+
+```julia
+meta = fetch_meta("vanderpol")
+
+opts = meta["opts"] # default options
+sol = solve(prob, opts...);
+```
+
+
+### Plan B
+
 ```julia
 using ReachabilityModels, ReachabilityAnalysis, Plots
 
