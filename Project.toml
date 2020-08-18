@@ -3,8 +3,14 @@ uuid = "20aa409e-046b-4a69-a2fd-3a10e4fb9b33"
 authors = ["Marcelo Forets"]
 version = "0.1.0"
 
+[deps]
+MathematicalSystems = "d14a8603-c872-5ed3-9ece-53e0e82e39da"
+TaylorIntegration = "92b13dbe-c966-51a2-8445-caca9f8a7d42"
+
 [compat]
 julia = "1.4"
+MathematicalSystems = "0.11"
+TaylorIntegration = "0.8"
 
 [extras]
 Test = "8dfed614-e22c-5e08-85e1-65c5234f0b40"
