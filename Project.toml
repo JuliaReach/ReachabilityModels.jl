@@ -4,13 +4,11 @@ authors = ["Marcelo Forets"]
 version = "0.1.0"
 
 [deps]
-MathematicalSystems = "d14a8603-c872-5ed3-9ece-53e0e82e39da"
-TaylorIntegration = "92b13dbe-c966-51a2-8445-caca9f8a7d42"
+ReachabilityAnalysis = "1e97bd63-91d1-579d-8e8d-501d2b57c93f"
 
 [compat]
 julia = "1.4"
-MathematicalSystems = "0.11"
-TaylorIntegration = "0.8"
+ReachabilityAnalysis = "0.7"
 
 [extras]
 Test = "8dfed614-e22c-5e08-85e1-65c5234f0b40"
