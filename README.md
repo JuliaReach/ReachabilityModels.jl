@@ -11,7 +11,7 @@
 ## Usage
 
 ```julia
-using ReachabilityModels, ReachabilityAnalysis, Plots
+using ReachabilityModels, Plots
 
 prob = fetch_model("lorenz") # initial-value problem
 
