@@ -10,12 +10,10 @@
 
 ## Usage
 
-### Plan A
-
 ```julia
 using ReachabilityModels, ReachabilityAnalysis, Plots
 
-prob = fetch_model("vanderpol") # initial-value problem
+prob = fetch_model("lorenz") # initial-value problem
 
 sol = solve(prob, T=1.0);
 solz = overapproximate(sol, Zonotope);
@@ -27,25 +25,8 @@ or
 
 
 ```julia
-meta = fetch_meta("vanderpol")
+meta = fetch_meta("lorenz")
 
 opts = meta["opts"] # default options
 sol = solve(prob, opts...);
-```
-
-
-### Plan B
-
-```julia
-using ReachabilityModels, ReachabilityAnalysis, Plots
-
-model = models["vanderpol"]
-
-prob = model["ivp"] # initial-value problem
-opts = model["options"] # default options
-
-sol = solve(prob, opts);
-solz = overapproximate(sol, Zonotope)
-
-plot(sol, vars=(1, 2))
 ```
