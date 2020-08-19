@@ -24,3 +24,14 @@ function fetch_meta(instance::AbstractString)
     end
     return S
 end
+
+function list(arg, f)
+    models = Vector()
+    for model in readdir(joinpath(RM_dir, "src/meta"))
+        meta = include(joinpath(RM_dir, "src/meta", model))
+        if f(meta["info"][arg])
+            push!(models, meta["info"]["name"])
+        end
+    end
+    return models
+end
