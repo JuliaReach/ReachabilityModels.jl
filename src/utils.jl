@@ -3,14 +3,19 @@ RM_dir = joinpath(dirname(pathof(ReachabilityModels)), "..")
 function fetch_model(instance::AbstractString; kwargs...)
 
     nakeinstance = replace(instance, Pair(".jl", ""))
-
-    if isfile(joinpath(RM_dir, "src/models", "$(nakeinstance).jl"))
-        file = include(joinpath(RM_dir, "src/models", "$(nakeinstance).jl"))
-        return getfield(ReachabilityModels, Symbol(instance))(kwargs...)
+    if haskey(kwargs, :X0)
+        X0 = kwargs[:X0]
     else
-        throw(ArgumentError("Model $instance not found"))
+        X0 = fetch_meta(nakeinstance)["X0"]
     end
-    return S
+    dir = joinpath(RM_dir, "src/models", "$(nakeinstance).jl")
+    if isfile(dir)
+        include(dir)
+        m = getfield(ReachabilityModels, Symbol(nakeinstance))
+        Base.invokelatest(m.model, X0)
+    else
+        throw(ArgumentError("Model $nakeinstance not found"))
+    end
 end
 
 function fetch_meta(instance::AbstractString)
