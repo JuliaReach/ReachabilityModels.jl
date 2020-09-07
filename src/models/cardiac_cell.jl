@@ -48,6 +48,6 @@ end
 
 function model(X0)
     H = cardiac_cell_hybrid()
-    return IVP(H, [(1, X0)])
+    return IVP(H, X0)
 end
 end # module
