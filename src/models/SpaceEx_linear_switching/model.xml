@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<sspaceex xmlns="http://www-verimag.imag.fr/xml-namespaces/sspaceex" version="0.2" math="SpaceEx">
+  <component id="switch">
+    <param name="x1" type="real" local="false" d1="1" d2="1" dynamics="any" />
+    <param name="x2" type="real" local="false" d1="1" d2="1" dynamics="any" />
+    <param name="x3" type="real" local="false" d1="1" d2="1" dynamics="any" />
+    <param name="x4" type="real" local="false" d1="1" d2="1" dynamics="any" />
+    <param name="x5" type="real" local="false" d1="1" d2="1" dynamics="any" />
+    <param name="u" type="real" local="false" d1="1" d2="1" dynamics="any" controlled="false" />
+    <location id="1" name="q1" x="280.0" y="329.0" width="544.0" height="134.0">
+      <invariant>x1 &gt;= 3 &amp; -1 &lt;= u &lt;= 1</invariant>
+      <flow>x1' == -0.8047*x1 + 8.7420*x2 - 2.4591*x3 - 8.2714*x4 - 1.8640*x5 -0.0845*u &amp;
+    x2' == -8.6329*x1 - 0.5860*x2 - 2.1006*x3 + 3.6035*x4 - 1.8423*x5 &amp;
+    x3' == 2.4511*x1 + 2.2394*x2 - 0.7538*x3 - 3.6934*x4 + 2.4585*x5 &amp;
+    x4' == 8.3858*x1 - 3.1739*x2 + 3.7822*x3 - 0.6249*x4 + 1.8829*x5 &amp;
+    x5' == 1.8302*x1 + 1.9869*x2 - 2.4539*x3 - 1.7726*x4 - 0.7911*x5 -0.7342*u</flow>
+    </location>
+    <location id="2" name="q2" x="519.0" y="110.0" width="452.0" height="120.0">
+      <invariant>x1 &gt;= 2 &amp; -1 &lt;= u &lt;= 1</invariant>
+      <flow> x1' == -0.8316*x1 + 8.7658*x2 - 2.4744*x3 - 8.2608*x4 - 1.9033*x5 -0.0845*u &amp;
+    x2' == -0.8316*x1 - 0.5860*x2 - 2.1006*x3 + 3.6035*x4 - 1.8423*x5 &amp;
+    x3' == 2.4511*x1 + 2.2394*x2 - 0.7538*x3 - 3.6934*x4 + 2.4585*x5 &amp;
+    x4' == 8.3858*x1 - 3.1739*x2 + 3.7822*x3 - 0.6249*x4 + 1.8829*x5 &amp;
+    x5' == 1.5964*x1 + 2.1936*x2 - 2.5872*x3 - 1.6812*x4 - 1.1324*x5 -0.7342*u</flow>
+    </location>
+    <location id="3" name="q3" x="885.0" y="315.0" width="456.0" height="118.0">
+      <invariant>x1 &gt;= 1 &amp; -1 &lt;= u &lt;= 1</invariant>
+      <flow>x1' == -0.9275*x1 + 8.8628*x2 - 2.5428*x3 - 8.2329*x4 - 2.0324*x5 -0.0845*u &amp;
+    x2' == -0.8316*x1 - 0.5860*x2 - 2.1006*x3 + 3.6035*x4 - 1.8423*x5 &amp;
+    x3' == 2.4511*x1 + 2.2394*x2 - 0.7538*x3 - 3.6934*x4 + 2.4585*x5 &amp;
+    x4' == 8.3858*x1 - 3.1739*x2 + 3.7822*x3 - 0.6249*x4 + 1.8829*x5 &amp;
+    x5' == 0.7635*x1 + 3.0357*x2 - 3.1814*x3 - 1.4388*x4 - 2.2538*x5 -0.7342*u</flow>
+    </location>
+    <location id="4" name="q4" x="861.0" y="525.0" width="454.0" height="116.0">
+      <invariant>x1 &gt;= 0 &amp; -1 &lt;= u &lt;= 1</invariant>
+      <flow>x1' == -1.4021*x1 + 10.1647*x2 - 3.3937*x3 - 8.5139*x4 - 2.9602*x5 -0.0845*u &amp;
+    x2' == -0.8316*x1 - 0.5860*x2 - 2.1006*x3 + 3.6035*x4 - 1.8423*x5 &amp;
+    x3' == 2.4511*x1 + 2.2394*x2 - 0.7538*x3 - 3.6934*x4 + 2.4585*x5 &amp;
+    x4' == 8.3858*x1 - 3.1739*x2 + 3.7822*x3 - 0.6249*x4 + 1.8829*x5 &amp;
+    x5' == -3.3585*x1 + 14.3426*x2 - 10.5703*x3 - 3.8785*x4 - 10.3111*x5 -0.7342*u</flow>
+    </location>
+    <location id="5" name="q5" x="296.0" y="566.0" width="476.0" height="132.0">
+      <invariant> x1 &lt;= 1 &amp; -1 &lt;= u &lt;= 1 </invariant>
+      <flow>x1' == -1.4021*x1 + 10.1647*x2 - 3.3937*x3 - 8.5139*x4 - 2.9602*x5 - 0.0845*u &amp;
+x2' == -0.8316*x1 - 0.5860*x2 - 2.1006*x3 + 3.6035*x4 - 1.8423*x5 &amp;
+x3' == 2.4511*x1 + 2.2394*x2 - 0.7538*x3 - 3.6934*x4 +2.4585*x5 &amp;
+x4' == 8.3858*x1 - 3.1739*x2 + 3.7822*x3 - 0.6249*x4 +1.8829*x5 &amp;
+x5' == -3.3585*x1 + 14.3426*x2 - 10.5703*x3 - 3.8785*x4 - 10.3111*x5 - 0.7342*u</flow>
+    </location>
+    <transition source="1" target="2">
+      <guard>x1 == 3</guard>
+      <labelposition x="-64.0" y="-32.0" />
+    </transition>
+    <transition source="2" target="3">
+      <guard>x1 == 2</guard>
+      <labelposition x="42.0" y="-39.0" />
+    </transition>
+    <transition source="3" target="4">
+      <guard>x1 == 1</guard>
+      <labelposition x="13.0" y="-28.0" />
+    </transition>
+    <transition source="4" target="5">
+      <guard>x1 == 0</guard>
+      <labelposition x="-8.0" y="-4.0" />
+    </transition>
+    <transition source="5" target="1">
+          <guard>x1 == 1</guard>
+    </transition>
+  </component>
+</sspaceex>
