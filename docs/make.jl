@@ -11,13 +11,15 @@ DocMeta.setdocmeta!(ReachabilityModels, :DocTestSetup, :(using ReachabilityModel
 makedocs(
     sitename = "Reachability Models",
     modules = [ReachabilityModels],
-    format = Documenter.HTML(prettyurls = get(ENV, "CI", nothing) == "true"),
+    format = Documenter.HTML(prettyurls = haskey(ENV, "GITHUB_ACTIONS"),  # disable for local builds
+                             collapselevel = 1,
+                             assets = ["assets/juliareach-light.css"]),
     pages = [
         "Home" => "index.md",
         "Usage" => "usage.md",
-        #"Linear ODEs" => Any["Helicopter" =>  "models/helicopter.md"],
-        #"Nonlinear ODEs" => Any["Lorenz" => "models/lorenz.md"],
-        #"Hybrid ODEs" => Any["Bouncing ball" => "models/bouncing_ball.md"],
+        "Linear ODEs" => Any["Helicopter" =>  "models/helicopter.md"],
+        "Nonlinear ODEs" => Any["Lorenz" => "models/lorenz.md"],
+        "Hybrid ODEs" => Any["Bouncing ball" => "models/bouncing_ball.md"],
         "References" => "references.md",
         "About" => "about.md"
     ],
