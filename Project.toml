@@ -1,6 +1,7 @@
 name = "ReachabilityModels"
 uuid = "20aa409e-046b-4a69-a2fd-3a10e4fb9b33"
-authors = ["Marcelo Forets"]
+authors = ["Marcelo Forets <mforets@gmail.com>",
+           "Sebastian Guadalupe <sebastianguadalupe00@gmail.com>"]
 version = "0.1.0"
 
 [deps]
@@ -10,9 +11,9 @@ SparseArrays = "2f01184e-e22b-5df5-ae63-d93ebab69eaf"
 SX = "2e6cc458-d83e-591d-8542-f3776f70ceb9"
 
 [compat]
-julia = "1.4"
-ModelingToolkit = "3.15"
-ReachabilityAnalysis = "0.8"
+julia = "1.4, 1.5"
+ModelingToolkit = "3.14, 3.15"
+ReachabilityAnalysis = "0.7, 0.8"
 SX = "0.3"
 
 [extras]
