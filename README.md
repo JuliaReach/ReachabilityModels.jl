@@ -2,7 +2,7 @@
 
 [![Dev](https://img.shields.io/badge/docs-dev-blue.svg)](https://juliareach.github.io/ReachabilityModels.jl/dev)
 [![Build Status](https://travis-ci.com/juliareach/ReachabilityModels.jl.svg?branch=master)](https://travis-ci.com/juliareach/ReachabilityModels.jl)
-[![Build Status](https://ci.appveyor.com/api/projects/status/github/juliareach/ReachabilityModels.jl?svg=true)](https://ci.appveyor.com/project/juliareach/ReachabilityModels-jl)
+[![Build Status](https://ci.appveyor.com/api/projects/status/github/juliareach/ReachabilityModels.jl?svg=true)](https://ci.appveyor.com/project/mforets/ReachabilityModels-jl)
 
 ## Usage
 
