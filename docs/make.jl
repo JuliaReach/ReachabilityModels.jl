@@ -3,7 +3,7 @@ using Documenter, ReachabilityModels
 DocMeta.setdocmeta!(ReachabilityModels, :DocTestSetup, :(using ReachabilityModels); recursive=true)
 
 # Generate notebooks
-#include("generate.jl")
+include("generate.jl")
 
 # Generate bibliography
 #include("bibliography.jl")
