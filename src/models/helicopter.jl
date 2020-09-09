@@ -1,5 +1,14 @@
-module helicopter
-using ReachabilityAnalysis, SparseArrays
+# # Helicopter
+#
+#md # !!! note "Overview"
+#md #     System type: linear continuous system\
+#md #     State dimension: 28\
+#md #     Application domain: 
+
+# This is a 28-dimensional controlled helicopter model from [REF].
+
+module helicopter #jl
+using ReachabilityAnalysis, SparseArrays #jl
 
 function helicopter_A()
     A = [[0, 0, 0, 0.998574, 0.0533843, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
@@ -42,4 +51,7 @@ function model(X0)
     S = @system(x' = Ax)
     return IVP(S, X0)
 end
-end # module
+end #jl
+
+
+# [^REF]: XXX
