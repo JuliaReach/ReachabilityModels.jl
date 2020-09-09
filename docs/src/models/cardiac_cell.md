@@ -1,3 +1,8 @@
+```@meta
+EditURL = "<unknown>/src/models/cardiac_cell/cardiac_cell.jl"
+```
+
+```@example cardiac_cell
 module cardiac_cell
 using ReachabilityAnalysis, ModelingToolkit
 
@@ -51,3 +56,5 @@ function model(X0)
     return IVP(H, X0)
 end
 end # module
+```
+

@@ -28,17 +28,17 @@ function powertrain_control_hybrid()
     automaton = LightAutomaton(2)
     add_transition!(automaton, 1, 2, 1)
 
-    # mode 1 "startup"
+    ## mode 1 "startup"
     invariant = HPolyhedron([HalfSpace(t >= 9.5, vars), HalfSpace(t <= 20, vars)])
     mode1 = @system(x' = startup!(x), dim:5, x ∈ invariant)
-    # mode 1 "normal"
+    ## mode 1 "normal"
     invariant = Universe(n)
     mode2 = @system(x' = normal!(x), dim:5, x ∈ invariant)
     modes = [mode1, mode2]
 
     reset = Dict(n => 0.)
 
-    # transition startup -> normal
+    ## transition startup -> normal
     guard = HalfSpace(t >= 9.5, vars)
     trans1 = ConstrainedResetMap(n, guard, reset)
     resetmaps = [trans1]

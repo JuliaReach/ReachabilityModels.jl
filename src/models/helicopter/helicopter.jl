@@ -8,7 +8,7 @@
 # This is a 28-dimensional controlled helicopter model from [REF].
 
 module helicopter #jl
-using ReachabilityAnalysis, SparseArrays #jl
+using ReachabilityAnalysis, SparseArrays
 
 function helicopter_A()
     A = [[0, 0, 0, 0.998574, 0.0533843, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],

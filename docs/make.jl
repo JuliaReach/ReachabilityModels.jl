@@ -19,7 +19,7 @@ makedocs(
         "Usage" => "usage.md",
         "Linear ODEs" => Any["Helicopter" =>  "models/helicopter.md"],
         "Nonlinear ODEs" => Any["Lorenz" => "models/lorenz.md"],
-        "Hybrid ODEs" => Any["Bouncing ball" => "models/bouncing_ball.md"],
+        "Hybrid ODEs" => Any["Bouncing ball" => "models/bouncing_ball_nonlinear.md"],
         "References" => "references.md",
         "About" => "about.md"
     ],
