@@ -65,28 +65,28 @@ function navigation_system_hybrid()
     mode4 = mode3()
     modes = [mode1, mode2, mode3, mode4]
 
-    # transition 1 -> 2
+    ## transition 1 -> 2
     guard = HPolyhedron([HalfSpace(x >= 1), HalfSpace(v_x >= 0)])
     trans1 = ConstrainedIdentityMap(4, guard)
-    # transition 2 -> 1
+    ## transition 2 -> 1
     guard = HPolyhedron([HalfSpace(x <= 1), HalfSpace(v_x <= 0)])
     trans2 = ConstrainedIdentityMap(4, guard)
-    # transition 2 -> 4
+    ## transition 2 -> 4
     guard = HPolyhedron([HalfSpace(y >= 1), HalfSpace(v_y >= 0)])
     trans3 = ConstrainedIdentityMap(4, guard)
-    # transition 4 -> 2
+    ## transition 4 -> 2
     guard = HPolyhedron([HalfSpace(y <= 1), HalfSpace(v_y <= 0)])
     trans4 = ConstrainedIdentityMap(4, guard)
-    # transition 1 -> 3
+    ## transition 1 -> 3
     guard = HPolyhedron([HalfSpace(y >= 1), HalfSpace(v_y >= 0)])
     trans5 = ConstrainedIdentityMap(4, guard)
-    # transition 3 -> 1
+    ## transition 3 -> 1
     guard = HPolyhedron([HalfSpace(y <= 1), HalfSpace(v_y <= 0)])
     trans6 = ConstrainedIdentityMap(4, guard)
-    # transition 3 -> 4
+    ## transition 3 -> 4
     guard = HPolyhedron([HalfSpace(x >= 1), HalfSpace(v_x >= 0)])
     trans7 = ConstrainedIdentityMap(4, guard)
-    # transition 4 -> 3
+    ## transition 4 -> 3
     guard = HPolyhedron([HalfSpace(x <= 1), HalfSpace(v_x <= 0)])
     trans8 = ConstrainedIdentityMap(4, guard)
     resetmaps = [trans1, trans2, trans3, trans4, trans5, trans6, trans7, trans8]

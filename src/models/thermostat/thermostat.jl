@@ -29,10 +29,10 @@ function thermostat_hybrid()
     mode2 = thermostat_off()
     modes = [mode1, mode2]
 
-    # transition on -> off
+    ## transition on -> off
     guard = HalfSpace(t >= t1)
     trans1 = ConstrainedIdentityMap(1, guard)
-    # transition off -> on
+    ## transition off -> on
     guard = HalfSpace(t <= t2)
     trans2 = ConstrainedIdentityMap(1, guard)
     resetmaps = [trans1, trans2]

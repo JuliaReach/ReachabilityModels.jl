@@ -11,21 +11,21 @@ using ReachabilityAnalysis, ModelingToolkit
 end
 
 function spikingNeuron_model()
-    # hybrid automaton
+    ## hybrid automaton
     HA = LightAutomaton(1)
 
-    # mode 1
+    ## mode 1
     X = HPolyhedron([HalfSpace([1.0, 0.0], 30.0)])  # x1 ≤ 30
     m1 = @system(x' = flow!(x), dim: 2, x ∈ X)
 
-    # transition mode 1 → mode 1 (self loop)
+    ## transition mode 1 → mode 1 (self loop)
     add_transition!(HA, 1, 1, 1)
     G = HPolyhedron([HalfSpace([-1.0, 0.0], -30.0)])  # x1 ≥ 30
     A = [0.0 0.0; 0.0 1.0]
     b = [-65.0, 8.0]
     R11 = ConstrainedAffineMap(A, b, G)  # x1 := -65, x2 := x2 + 8
 
-    # hybrid system
+    ## hybrid system
     S = HybridSystem(HA, [m1], [R11], [AutonomousSwitching()])
 
     return S

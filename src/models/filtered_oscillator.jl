@@ -2,7 +2,13 @@ module filtered_oscillator
 
 using ReachabilityAnalysis
 
-# common flow
+one_loop_iteration = false
+n0 = 4
+n1 = (one_loop_iteration ? n0 + 1 : n0)
+n = n1 + 2
+z = zeros(n1)
+
+## common flow
 A = zeros(n, n)
 A[1,1], A[2,2] = -2., -1.
 A[3,1], A[3,3] = 5., -5.
@@ -37,20 +43,20 @@ function mode4(z, one_loop_iteration)
                      HalfSpace([-1.0; 0.0; z], 0.0)])  # x >= 0
 
     if one_loop_iteration
-        # k <= 2 (2.1 to avoid numerical issues)
+        ## k <= 2 (2.1 to avoid numerical issues)
         addconstraint!(X, HalfSpace([zeros(n-1); 1.], 2.1))
     end
     @system(x' = Ax + b, x ∈ X)
 end
 
 
-function filtered_oscillator(n0, one_loop_iteration)
+function filtered_oscillator_hybrid(n0, one_loop_iteration)
 
     n1 = (one_loop_iteration ? n0 + 1 : n0)
     n = n1 + 2
     z = zeros(n1)
 
-    # transition graph (automaton)
+    ## transition graph (automaton)
     a = LightAutomaton(4)
     add_transition!(a, 3, 4, 1)
     add_transition!(a, 4, 2, 2)
@@ -63,9 +69,9 @@ function filtered_oscillator(n0, one_loop_iteration)
     mode4 = mode4(z, one_loop_iteration)
     m = [mode1, mode2, mode3, mode4]
 
-    # transitions
+    ## transitions
 
-    # transition l3 -> l4
+    ## transition l3 -> l4
     X_l3l4 = HPolyhedron([HalfSpace([-1.0; 0.0; z], 0.0),  # x >= 0
                           HalfSpace([-0.714286; -1.0; z], 0.0),  # 0.714286*x + y >= 0
                           HalfSpace([0.714286; 1.0; z], 0.0)])  # 0.714286*x + y <= 0
@@ -77,19 +83,19 @@ function filtered_oscillator(n0, one_loop_iteration)
         r1 = ConstrainedIdentityMap(n, X_l3l4)
     end
 
-    # transition l4 -> l2
+    ## transition l4 -> l2
     X_l4l2 = HPolyhedron([HalfSpace([0.714286; 1.0; z], 0.0),  # 0.714286*x + y <= 0
                           HalfSpace([-1.0; 0.0; z], 0.0),  # x >= 0
                           HalfSpace([1.0; 0.0; z], 0.0)])  # x <= 0
     r2 = ConstrainedIdentityMap(n, X_l4l2)
 
-    # transition l2 -> l1
+    ## transition l2 -> l1
     X_l2l1 = HPolyhedron([HalfSpace([1.0; 0.0; z], 0.0),  # x <= 0
                           HalfSpace([-0.714286; -1.0; z], 0.0),  # 0.714286*x + y >= 0
                           HalfSpace([0.714286; 1.0; z], 0.0)])  # 0.714286*x + y <= 0
     r3 = ConstrainedIdentityMap(n, X_l2l1)
 
-    # transition l1 -> l3
+    ## transition l1 -> l3
     X_l1l3 = HPolyhedron([HalfSpace([-0.714286; -1.0; z], 0.0),  # 0.714286*x + y >= 0
                           HalfSpace([-1.0; 0.0; z], 0.0),  # x >= 0
                           HalfSpace([1.0; 0.0; z], 0.0)])  # x <= 0
@@ -97,14 +103,14 @@ function filtered_oscillator(n0, one_loop_iteration)
 
     r = [r1, r2, r3, r4]
 
-    # switchings
+    ## switchings
     s = [HybridSystems.AutonomousSwitching()]
 
     return HybridSystem(a, m, r, s)
 end
 
-function model(X0; n0:Int=4, one_loop_iteration::Bool=false)
-    H = navigation_system_hybrid(n0, one_loop_iteration)
+function model(X0; n0::Int=4, one_loop_iteration::Bool=false)
+    H = filtered_oscillator_hybrid(n0, one_loop_iteration)
     return IVP(H, [(1, X0)])
 end
 

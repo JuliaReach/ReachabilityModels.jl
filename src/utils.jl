@@ -8,7 +8,7 @@ function fetch_model(instance::AbstractString; kwargs...)
     else
         X0 = fetch_meta(nakeinstance)["X0"]
     end
-    dir = joinpath(RM_dir, "src/models", "$(nakeinstance).jl")
+    dir = joinpath(RM_dir, "src/models", "$(nakeinstance)/$(nakeinstance).jl")
     if isfile(dir)
         include(dir)
         m = getfield(ReachabilityModels, Symbol(nakeinstance))
@@ -22,8 +22,9 @@ function fetch_meta(instance::AbstractString)
 
     nakeinstance = replace(instance, Pair(".jl", ""))
 
-    if isfile(joinpath(RM_dir, "src/meta", "$(nakeinstance).jl"))
-        return include(joinpath(RM_dir, "src/meta", "$(nakeinstance).jl"))
+    file = joinpath(RM_dir, "src/models", "$(nakeinstance)/$(nakeinstance)_meta.jl")
+    if isfile(file)
+        return include(file)
     else
         throw(ArgumentError("Meta for $instance not found"))
     end
@@ -32,8 +33,9 @@ end
 
 function list(arg, f)
     models = Vector()
-    for model in readdir(joinpath(RM_dir, "src/meta"))
-        meta = include(joinpath(RM_dir, "src/meta", model))
+    dir = joinpath(RM_dir, "src/models")
+    for model in readdir(dir)
+        meta = include(joinpath(dir, model, model*"_meta.jl"))
         if f(meta["info"][arg])
             push!(models, meta["info"]["name"])
         end
