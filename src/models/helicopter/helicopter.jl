@@ -3,7 +3,7 @@
 #md # !!! note "Overview"
 #md #     System type: linear continuous system\
 #md #     State dimension: 28\
-#md #     Application domain: 
+#md #     Application domain:
 
 # This is a 28-dimensional controlled helicopter model from [REF].
 
@@ -44,10 +44,10 @@ function helicopter_A()
 end
 
 function model(X0)
-    # system matrix
+    ## system matrix
     A = helicopter_A()
 
-    # linear continuous system
+    ## linear continuous system
     S = @system(x' = Ax)
     return IVP(S, X0)
 end
