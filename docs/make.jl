@@ -21,7 +21,7 @@ makedocs(
                              "Building" =>  "models/building.md",
                              "CD Player" =>  "models/cdplayer.md",
                              "Crane" =>  "models/crane.md",
-                             "Elipsse" =>  "models/elipse.md",
+                             "Elipse" =>  "models/elipse.md",
                              "Five Dim System" =>  "models/five_dim_sys.md",
                              "Fom" =>  "models/fom.md",
                              "Heat" =>  "models/heat.md",
