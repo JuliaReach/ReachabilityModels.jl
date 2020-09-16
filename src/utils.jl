@@ -77,3 +77,14 @@ macro relpath(name::String)
     dir = isempty(_dirname) ? pwd() : abspath(_dirname)
     return joinpath(dir, name)
 end
+
+function summary()
+    nmodels = length(list("dim", x->x > 0))
+    nlinear = length(list("linear", x->x == true))
+    nnonlinear = length(list("linear", x->x == false))
+    nhybrid = length(list("hybrid", x->x == true))
+    print("Models: ", nmodels, "\n")
+    print("Linear models: ", nlinear, "\n")
+    print("Nonlinear models: ", nnonlinear, "\n")
+    print("Hybrid models: ", nhybrid, "\n")
+end
