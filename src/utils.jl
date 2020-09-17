@@ -82,7 +82,7 @@ end
 function generate_summary()
 
     ### OVERVIEW
-    open(joinpath(dirname(@__FILE__), "../docs/src/models/overview.md"), "w") do file
+    open(joinpath(dirname(@__FILE__), "../docs/src/overview.md"), "w") do file
         nmodels = length(list("dim", x->x > 0))
         nlinear = length(list("linear", x->x == true))
         nnonlinear = length(list("linear", x->x == false))
