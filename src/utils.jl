@@ -83,8 +83,7 @@ function generate_summary()
     open(joinpath(dirname(@__FILE__), "../docs/src/models/linear_overview.md"), "w") do file
         function printrow(model)
             meta = fetch_meta(model)["info"]
-            println(file, "| **$(meta["name"])** | | | |")
-            println(file, "| $(meta["dim"]) | $(-)) | $(-) | $(-) |")
+            println(file, "| **$(meta["name"])** | $(meta["dim"]) | $(-) | $(-) | $(-) |")
         end
 
         print(file, """
