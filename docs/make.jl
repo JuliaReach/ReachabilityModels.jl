@@ -1,4 +1,5 @@
 using Documenter, ReachabilityModels
+using ReachabilityModels: generate_summary
 
 DocMeta.setdocmeta!(ReachabilityModels, :DocTestSetup, :(using ReachabilityModels); recursive=true)
 
@@ -7,6 +8,8 @@ include("generate.jl")
 
 # Generate bibliography
 #include("bibliography.jl")
+
+generate_summary()
 
 makedocs(
     sitename = "Reachability Models",
