@@ -78,13 +78,27 @@ macro relpath(name::String)
     return joinpath(dir, name)
 end
 
-function summary()
-    nmodels = length(list("dim", x->x > 0))
-    nlinear = length(list("linear", x->x == true))
-    nnonlinear = length(list("linear", x->x == false))
-    nhybrid = length(list("hybrid", x->x == true))
-    print("Models: ", nmodels, "\n")
-    print("Linear models: ", nlinear, "\n")
-    print("Nonlinear models: ", nnonlinear, "\n")
-    print("Hybrid models: ", nhybrid, "\n")
+# generate models overview in documentation
+function generate_summary()
+    open(joinpath(dirname(@__FILE__), "../docs/src/models/linear_overview.md"), "w") do file
+        function printrow(model)
+            meta = fetch_meta(model)["info"]
+            println(file, "| **$(meta["name"])** | | | |")
+            println(file, "| $(meta["dim"]) | $(-)) | $(-) | $(-) |")
+        end
+
+        print(file, """
+                    # Linear models
+                    Here are the models with linear dynamics.
+
+                    | Name  | State dim | Input dim | Safesty Property | Application Domain | Nominal Runtime |
+                    |:------|----------:|----------:|-----------------:|-------------------:|----------------:|
+                    """)
+
+        linear_models = list("linear", x->x == true)
+        for model in linear_models
+            println(model)
+            printrow(model)
+        end
+    end
 end
