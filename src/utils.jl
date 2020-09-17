@@ -80,6 +80,25 @@ end
 
 # generate models overview in documentation
 function generate_summary()
+
+    ### OVERVIEW
+    open(joinpath(dirname(@__FILE__), "../docs/src/models/overview.md"), "w") do file
+        nmodels = length(list("dim", x->x > 0))
+        nlinear = length(list("linear", x->x == true))
+        nnonlinear = length(list("linear", x->x == false))
+        nhybrid = length(list("hybrid", x->x == true))
+        print(file, """
+                    # Models
+                    Here is a table showing the number of models for each type
+                    of system.
+
+                    | Linear   | Nonlinear   | Hybrid   | Total    |
+                    |:---------|------------:|---------:|---------:|
+                    |$(nlinear)|$(nnonlinear)|$(nhybrid)|$(nmodels)|
+                    """)
+    end
+
+    ### LINEAR
     open(joinpath(dirname(@__FILE__), "../docs/src/models/linear_overview.md"), "w") do file
         function printrow(model)
             meta = fetch_meta(model)["info"]
@@ -96,7 +115,48 @@ function generate_summary()
 
         linear_models = list("linear", x->x == true)
         for model in linear_models
-            println(model)
+            printrow(model)
+        end
+    end
+
+    ### NONLINEAR
+    open(joinpath(dirname(@__FILE__), "../docs/src/models/nonlinear_overview.md"), "w") do file
+        function printrow(model)
+            meta = fetch_meta(model)["info"]
+            println(file, "| **$(meta["name"])** | $(meta["dim"]) | $(-) | $(-) | $(-) |")
+        end
+
+        print(file, """
+                    # Nonlinear models
+                    Here are the models with nonlinear dynamics.
+
+                    | Name  | State dim | Input dim | Safesty Property | Application Domain | Nominal Runtime |
+                    |:------|----------:|----------:|-----------------:|-------------------:|----------------:|
+                    """)
+
+        nonlinear_models = list("linear", x->x == false)
+        for model in nonlinear_models
+            printrow(model)
+        end
+    end
+
+    ### HYBRID
+    open(joinpath(dirname(@__FILE__), "../docs/src/models/hybrid_overview.md"), "w") do file
+        function printrow(model)
+            meta = fetch_meta(model)["info"]
+            println(file, "| **$(meta["name"])** | $(meta["dim"]) | $(-) | $(-) | $(-) |")
+        end
+
+        print(file, """
+                    # Hybrid models
+                    Here are the models with hybrid systems.
+
+                    | Name  | State dim | Input dim | Safesty Property | Application Domain | Nominal Runtime |
+                    |:------|----------:|----------:|-----------------:|-------------------:|----------------:|
+                    """)
+
+        hybrid_models = list("hybrid", x->x == true)
+        for model in hybrid_models
             printrow(model)
         end
     end
