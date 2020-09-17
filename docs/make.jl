@@ -55,7 +55,7 @@ makedocs(
         "Hybrid ODEs" => Any["Overview" =>  "models/hybrid_overview.md",
                              "Bouncing ball" => "models/bouncing_ball_nonlinear.md",
                              "Cardiac Cell" => "models/cardiac_cell.md",
-                             "Clocked Thermostat" => "models/clocked_thermostat.md"],
+                             "Clocked Thermostat" => "models/clocked_thermostat.md",
                              "Navigation System" => "models/navigation_system.md",
                              "Powertrain Control" => "models/powertrain_control.md",
                              "Spiking Neuron" => "models/spiking_neuron.md",
