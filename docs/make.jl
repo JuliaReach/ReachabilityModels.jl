@@ -1,4 +1,5 @@
 using Documenter, ReachabilityModels
+using ReachabilityModels: generate_summary
 
 DocMeta.setdocmeta!(ReachabilityModels, :DocTestSetup, :(using ReachabilityModels); recursive=true)
 
@@ -7,6 +8,8 @@ include("generate.jl")
 
 # Generate bibliography
 #include("bibliography.jl")
+
+generate_summary()
 
 makedocs(
     sitename = "Reachability Models",
@@ -17,7 +20,9 @@ makedocs(
     pages = [
         "Home" => "index.md",
         "Usage" => "usage.md",
-        "Linear ODEs" => Any["Beam" =>  "models/beam.md",
+        "Overview" => "overview.md",
+        "Linear ODEs" => Any["Overview" =>  "models/linear_overview.md",
+                             "Beam" =>  "models/beam.md",
                              "Building" =>  "models/building.md",
                              "CD Player" =>  "models/cdplayer.md",
                              "Crane" =>  "models/crane.md",
@@ -32,7 +37,8 @@ makedocs(
                              "Motor" =>  "models/motor.md",
                              "PDE" =>  "models/pde.md",
                              "Projectile" =>  "models/projectile.md"],
-        "Nonlinear ODEs" => Any["Biomodel 7d" => "models/biomodel7d.md",
+        "Nonlinear ODEs" => Any["Overview" =>  "models/nonlinear_overview.md",
+                                "Biomodel 7d" => "models/biomodel7d.md",
                                 "Biomodel 9d" => "models/biomodel9d.md",
                                 "Brusselator" => "models/brusselator.md",
                                 "Bucking column" => "models/buckling_column.md",
@@ -46,7 +52,8 @@ makedocs(
                                 "Spring Pendulum" => "models/spring_pendulum.md",
                                 "Steam Governor" => "models/steam_governor.md",
                                 "VanDerPol" => "models/vanderpol.md"],
-        "Hybrid ODEs" => Any["Bouncing ball" => "models/bouncing_ball_nonlinear.md",
+        "Hybrid ODEs" => Any["Overview" =>  "models/hybrid_overview.md",
+                             "Bouncing ball" => "models/bouncing_ball_nonlinear.md",
                              "Cardiac Cell" => "models/cardiac_cell.md",
                              "Navigation System" => "models/navigation_system.md",
                              "Powertrain Control" => "models/powertrain_control.md",
