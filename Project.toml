@@ -10,14 +10,14 @@ ReachabilityAnalysis = "1e97bd63-91d1-579d-8e8d-501d2b57c93f"
 SparseArrays = "2f01184e-e22b-5df5-ae63-d93ebab69eaf"
 MAT = "23992714-dd62-5051-b70f-ba57cb901cac"
 Reexport = "189a3867-3050-52da-a836-e630ba90ab69"
-#SX = "2e6cc458-d83e-591d-8542-f3776f70ceb9"
+#SpaceExParser. = "2e6cc458-d83e-591d-8542-f3776f70ceb9"
 
 [compat]
 julia = "1.4, 1.5"
 ModelingToolkit = "3.14, 3.15"
 ReachabilityAnalysis = "0.7, 0.8"
 Reexport = "0.2"
-#SX = "0.3"
+#SpaceExParser. = "0.3"
 
 [extras]
 Test = "8dfed614-e22c-5e08-85e1-65c5234f0b40"
