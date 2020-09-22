@@ -10,9 +10,11 @@ function mode0()
          0 0 -1.2  0.1;
          0 0  0.1 -1.2]
     B = [0, 0, -0.1, 1.2]
-    invariant = HPolyhedron([HalfSpace(x <= 1 || v_x <= 0),
-                            HalfSpace(y <= 1 || v_y <= 0)])
-    @system(x' = Ax + B, x ∈ invariant)
+    invariant = UnionSetArray([HalfSpace(x <= 1),
+                               HalfSpace(v_x <= 0),
+                               HalfSpace(y <= 1),
+                               HalfSpace(v_y <= 0)])
+    return @system(x' = Ax + B, x ∈ invariant)
 end
 
 function mode1()
@@ -21,9 +23,11 @@ function mode1()
          0 0 -1.2  0.1;
          0 0  0.1 -1.2]
     B = [0, 0, -4.8, 0.4]
-    invariant = HPolyhedron([HalfSpace(x >= 1 || v_x <= 0),
-                            HalfSpace(y <= 1 || v_y <= 0)])
-    @system(x' = Ax + B, x ∈ invariant)
+    invariant = UnionSetArray([HalfSpace(x >= 1),
+                               HalfSpace(v_x <= 0),
+                               HalfSpace(y <= 1),
+                               HalfSpace(v_y <= 0)])
+    return @system(x' = Ax + B, x ∈ invariant)
 end
 
 function mode2()
@@ -32,8 +36,10 @@ function mode2()
          0 0 -1.2  0.1;
          0 0  0.1 -1.2]
     B = [0, 0, 2.4, -0.2]
-    invariant = HPolyhedron([HalfSpace(x <= 1 || v_x <= 0),
-                            HalfSpace(y >= 1 || v_y >= 0)])
+    invariant = UnionSetArray([HalfSpace(x <= 1),
+                               HalfSpace(v_x <= 0),
+                               HalfSpace(y >= 1),
+                               HalfSpace(v_y >= 0)])
     @system(x' = Ax + B, x ∈ invariant)
 end
 
@@ -43,8 +49,10 @@ function mode3()
          0 0 -1.2  0.1;
          0 0  0.1 -1.2]
     B = [0, 0, 3.9, -3.9]
-    invariant = HPolyhedron([HalfSpace(x >= 1 || v_x >= 0),
-                            HalfSpace(y >= 1 || v_y >= 0)])
+    invariant = UnionSetArray([HalfSpace(x >= 1),
+                               HalfSpace(v_x >= 0),
+                               HalfSpace(y >= 1),
+                               HalfSpace(v_y >= 0)])
     @system(x' = Ax + B, x ∈ invariant)
 end
 
@@ -59,11 +67,7 @@ function navigation_system_hybrid()
     add_transition!(automaton, 3, 4, 7)
     add_transition!(automaton, 4, 3, 8)
 
-    mode1 = mode0()
-    mode2 = mode1()
-    mode3 = mode2()
-    mode4 = mode3()
-    modes = [mode1, mode2, mode3, mode4]
+    modes = [mode0(), mode1(), mode2(), mode3()]
 
     ## transition 1 -> 2
     guard = HPolyhedron([HalfSpace(x >= 1), HalfSpace(v_x >= 0)])
