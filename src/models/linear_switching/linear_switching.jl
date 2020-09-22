@@ -1,7 +1,7 @@
 module linear_switching
 
 using ReachabilityAnalysis, ModelingToolkit
-using SX: readsxmodel, _get_coeffs
+using SpaceExParser.: readsxmodel, _get_coeffs
 
 n = 5  ## state dimension
 U = Interval(-1.0, 1.0)  ## common input domain
