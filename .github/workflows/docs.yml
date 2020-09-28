@@ -16,7 +16,7 @@ jobs:
         with:
           version: 1.5
       - name: Install dependencies
-        run: julia --project=docs/ -e 'using Pkg; Pkg.add(url="https://github.com/JuliaReach/SX.jl.git");
+        run: julia --project=docs/ -e 'using Pkg; Pkg.add(url="https://github.com/JuliaReach/SpaceExParser.jl.git");
                                                   Pkg.develop(PackageSpec(path=pwd())); Pkg.instantiate()'
       - name: Build and deploy
         env:

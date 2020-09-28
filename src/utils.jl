@@ -109,7 +109,7 @@ function generate_summary()
                     # Linear models
                     Here are the models with linear dynamics.
 
-                    | Name  | State dim | Input dim | Safesty Property | Application Domain | Nominal Runtime |
+                    | Name  | State dim | Input dim | Safety Property | Application Domain | Nominal Runtime (sec) |
                     |:------|----------:|----------:|-----------------:|-------------------:|----------------:|
                     """)
 

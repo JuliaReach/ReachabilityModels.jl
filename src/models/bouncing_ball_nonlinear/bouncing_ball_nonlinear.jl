@@ -1,7 +1,10 @@
-module bouncing_ball_nonlinear
-using ReachabilityAnalysis, ModelingToolkit
+# # Nonlinear bouncing ball
 
-vars = @variables x, v
+# ## Model
+
+module bouncing_ball_nonlinear #jl
+
+using ReachabilityAnalysis, ModelingToolkit
 
 @taylorize function flow_down!(du, u, params, t)
     du[1] = u[2]
@@ -16,28 +19,28 @@ end
 end
 
 function bouncingBallNonlinear_model()
+    var = @variables x, v
+
     ## hybrid automaton with state variables x, v
     HA = LightAutomaton(2)
 
     ## mode 1 ("down")
-    X = HPolyhedron([HalfSpace(x ≥ 0, vars),
-                     HalfSpace(v ≤ 0, vars)])
+    X = HPolyhedron([x ≥ 0, v ≤ 0], vars)
     m1 = @system(x' = flow_down!(x), dim: 2, x ∈ X)
 
     ## mode 2 ("up")
-    X = HPolyhedron([HalfSpace(x ≥ 0, vars),
-                     HalfSpace(v ≥ 0, vars)])
+    X = HPolyhedron([x ≥ 0, v ≥ 0], vars)
     m2 = @system(x' = flow_up!(x), dim: 2, x ∈ X)
 
     ## α transition down → up
     add_transition!(HA, 1, 2, 1)
-    G = HalfSpace(x <= 0, vars)
+    G = HalfSpace(x ≤ 0, vars)
     A = [1.0 0.0; 0.0 -0.8]
     Rα = ConstrainedLinearMap(A, G)  # v := -0.8v
 
     ## β transition up → down
     add_transition!(HA, 2, 1, 2)
-    G = HalfSpace(v <= 0, vars)
+    G = HalfSpace(v ≤ 0, vars)
     Rβ = ConstrainedIdentityMap(2, G)
 
     ## hybrid system
@@ -46,8 +49,9 @@ function bouncingBallNonlinear_model()
     return S
 end
 
-function model(X0)
-    H = bouncingBallNonlinear_model()
-    return IVP(H, X0)
+function model(X0)                                 #jl
+    H = bouncingBallNonlinear_model()              #jl
+    return IVP(H, X0)                              #jl
 end
-end # module
+
+end #jl

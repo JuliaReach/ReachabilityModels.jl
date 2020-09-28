@@ -1,7 +1,7 @@
 module linear_switching
 
 using ReachabilityAnalysis, ModelingToolkit, SymEngine
-using SX: readsxmodel, _get_coeffs
+using SpaceExParser.: readsxmodel, _get_coeffs
 using ReachabilityModels: @relpath
 
 n = 5  ## state dimension
