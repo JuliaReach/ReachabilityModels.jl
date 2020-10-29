@@ -1,6 +1,6 @@
 using ReachabilityAnalysis
 Dict([
-    "opts" => Dict(:T=>2.0, :alg=>BOX(δ=0.01)),
+    "opts" => Dict(:T=>2.0, :alg=>BOX(δ=0.01), :disjointness_method=>BoxEnclosure(), :intersect_source_invariant=>false),
     "X0"   => Hyperrectangle(low=[0.5, 0.5, 0.0, 0.0], high=[0.55, 0.55, 0, 0]),
     "info" => Dict(
         "name" => "navigation_system",

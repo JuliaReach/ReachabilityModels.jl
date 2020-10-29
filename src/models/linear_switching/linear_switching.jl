@@ -1,18 +1,19 @@
 module linear_switching
 
-using ReachabilityAnalysis, ModelingToolkit
+using ReachabilityAnalysis, ModelingToolkit, SymEngine
 using SpaceExParser.: readsxmodel, _get_coeffs
+using ReachabilityModels: @relpath
 
 n = 5  ## state dimension
 U = Interval(-1.0, 1.0)  ## common input domain
 m = dim(U)  ## input dimension
 ε = 1e-6  ## auxiliary bloating of guards for ensuring intersection
 
-file = @relpath "SpaceEx_linear_switching/model.xml"
-model = readsxmodel(file, raw_dict=true)
-variables = convert.(Basic, [f.args[1].args[1] for f in model["flows"][1]])
+file = @relpath "SpaceEx/model.xml"
+_model = readsxmodel(file, raw_dict=true)
+variables = convert.(Basic, [f.args[1].args[1] for f in _model["flows"][1]])
 inputs = [convert(Basic, :u)]
-load_dynamics(loc) = _get_coeffs(model["flows"][loc], n, m, variables, inputs)
+load_dynamics(loc) = _get_coeffs(_model["flows"][loc], n, m, variables, inputs)
 
 const var = @variables t
 
@@ -81,7 +82,7 @@ function linear_switching_hybrid()
     R51 = ConstrainedIdentityMap(5, G)
 
     ## hybrid system
-    return HybridSystem(HA, [q1, q2, q3, q4, q5], [R12, R23, R34, R45, R51],
+    return HybridSystem(HA, [mode1(), mode2(), mode3(), mode4(), mode5()], [R12, R23, R34, R45, R51],
                         fill(AutonomousSwitching(), 5))
 end
 
