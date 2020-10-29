@@ -45,6 +45,7 @@ makedocs(
                                 "Coupled VanDerPol" => "models/coupled_vanderpol.md",
                                 "Double Gyre" => "models/doublegyre.md",
                                 "Jet Engine" => "models/jet_engine.md",
+                                "Henon-Helies" => "models/henon_heiles",
                                 "Lotka-Volterra" => "models/lotka_volterra.md",
                                 "Lorenz" => "models/lorenz.md",
                                 "Robot Arm" => "models/robot_arm.md",
