@@ -1,20 +1,21 @@
-module pde
+# PDE
 
-using ReachabilityAnalysis, MAT
-using ReachabilityModels: @relpath
+module pde #jl
+
+using ReachabilityModels, MAT
 
 file = matopen(@relpath "pde.mat")
 
-# system matrix
+## system matrix
 A = float(read(file, "A"))  # the matrix has Int entries
 
-# input matrix
+## input matrix
 B = read(file, "B")
 
-# state domain
+## state domain
 X = Universe(84)
 
-# input domain
+## input domain
 U = BallInf([0.75], .25)
 
 function model(X0)
@@ -22,4 +23,8 @@ function model(X0)
     return IVP(S, X0)
 end
 
-end  # module
+end  #jl
+
+# Reachability settings
+
+# Results

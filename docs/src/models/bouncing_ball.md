@@ -14,7 +14,7 @@ using ReachabilityAnalysis, ModelingToolkit
 
 function _bouncing_ball()
 
-    var = @variables x, y
+    var = @variables x v
 
     # "falling" mode with invariant x >= 0
     invariant = HalfSpace(x ≥ 0, var)
