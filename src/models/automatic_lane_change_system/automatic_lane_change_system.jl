@@ -155,10 +155,10 @@ function acc_model()
     return S
 end
 
-function model(X0) #jl
-    H = acc_model() #jl
-    return IVP(H, X0) #jl
-end #jl
+function model(X0)
+    H = acc_model()
+    return IVP(H, X0)
+end
 end #jl
 
 # ## References
