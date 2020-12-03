@@ -1,4 +1,8 @@
-module automatic_lane_change_system
+# Automatic lane change system
+
+# ## Model
+
+module automatic_lane_change_system #jl
 using ReachabilityAnalysis, ModelingToolkit
 
 vars = @variables vx, sx, ax, w, vy, sy
@@ -83,31 +87,31 @@ end
 function acc_model()
     HA = LightAutomaton(7)
 
-    # mode 0
+    ## mode 0
     X = HalfSpace(sx + 10 < 0, vars)
     m0 = @system(x' = mode0!(x), dim: 6, x ∈ X)
 
-    # mode 1
+    ## mode 1
     X = HalfSpace(sy < 12, vars)
     m1 = @system(x' = mode1!(x), dim: 6, x ∈ X)
 
-    # mode 2
+    ## mode 2
     X = HalfSpace(vy > 0.05, vars)
     m2 = @system(x' = mode2!(x), dim: 6, x ∈ X)
 
-    # mode 3
+    ## mode 3
     X = HalfSpace(vy + 0.05 < 0, vars)
     m3 = @system(x' = mode3!(x), dim: 6, x ∈ X)
 
-    # mode 4
+    ## mode 4
     X = HalfSpace(sy > 3.5, vars)
     m4 = @system(x' = mode4!(x), dim: 6, x ∈ X)
 
-    # mode 5
+    ## mode 5
     X = Universe(6)
     m5 = @system(x' = mode5!(x), dim: 6, x ∈ X)
 
-    # mode 6
+    ## mode 6
     X = HalfSpace(vy < 0.05, vars)
     m6 = @system(x' = mode6!(x), dim: 6, x ∈ X)
 
@@ -151,8 +155,10 @@ function acc_model()
     return S
 end
 
-function model(X0)
-    H = acc_model()
-    return IVP(H, X0)
-end
-end # module
+function model(X0) #jl
+    H = acc_model() #jl
+    return IVP(H, X0) #jl
+end #jl
+end #jl
+
+# ## References
