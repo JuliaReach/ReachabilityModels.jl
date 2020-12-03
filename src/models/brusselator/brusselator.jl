@@ -1,5 +1,8 @@
-module brusselator
-using ReachabilityAnalysis
+# ## Brusselator
+
+# ## Model
+
+module brusselator      #jl
 
 using ReachabilityAnalysis
 
@@ -20,4 +23,7 @@ function model(X0)
     S = @system(x' = brusselator!(x), dim:2)
     return IVP(S, X0)
 end
-end #module
+
+end #jl
+
+# ## References

@@ -1,5 +1,11 @@
-module five_dim_sys
+# # Five dim sys
+
+# ## Model
+
+module five_dim_sys #jl
+
 using ReachabilityAnalysis
+
 ## system matrix
 D = [-1.0 -4.0  0.0  0.0  0.0;
       4.0 -1.0  0.0  0.0  0.0;
@@ -23,4 +29,7 @@ function model(X0)
     S = @system(x' = Ax + u, x ∈ X, u ∈ U)
     return IVP(S, X0)
 end
-end # module
+
+end #jl
+
+# ## References

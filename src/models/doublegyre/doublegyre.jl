@@ -1,5 +1,11 @@
-module doublegyre
+# # Double Gyre
+
+# ## Model
+
+module doublegyre   #jl
+
 using ReachabilityAnalysis
+
 @taylorize function doublegyre!(dx, x, params, t)
     local A = 0.1
     dx[1] = -π*A*sin(π*x[1])*cos(π*x[2])
@@ -9,6 +15,9 @@ end
 
 function model(X0)
     S = @system(x' = doublegyre!(x), dim:2)
-    return IVP(S, X0)
+    return IVP(S, X0)                           
 end
-end # module
+
+end #jl
+
+# ## References

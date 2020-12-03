@@ -1,4 +1,9 @@
-module cardiac_cell
+# # Cardiac cell
+
+# ## Model
+
+module cardiac_cell     #jl
+
 using ReachabilityAnalysis, ModelingToolkit
 
 vars = @variables u, v, t
@@ -48,6 +53,9 @@ end
 
 function model(X0)
     H = cardiac_cell_hybrid()
-    return IVP(H, X0)
+    return IVP(H, X0)               
 end
-end # module
+
+end #jl
+
+# ## References

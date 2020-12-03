@@ -1,5 +1,8 @@
-module coupled_vanderpol
-using ReachabilityAnalysis
+# ## Coupled Van der Pol oscillator
+
+# ## Model
+
+module coupled_vanderpol #jl
 
 using ReachabilityAnalysis
 
@@ -13,6 +16,9 @@ end
 
 function model(X0)
     S = @system(x' = coupled_vanderpol!(x), dim:4)
-    return IVP(S, X0)
+    return IVP(S, X0)                               
 end
-end #module
+
+end #jl
+
+# ## References

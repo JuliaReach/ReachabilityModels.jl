@@ -1,25 +1,31 @@
-module cdplayer
+# ## CDPlayer
+
+# ## Model
+
+module cdplayer #jl
 
 using ReachabilityAnalysis, MAT
 using ReachabilityModels: @relpath
 
 file = matopen(@relpath "cdplayer.mat")
 
-# system matrix
+## system matrix
 A = read(file, "A")
 
-# input matrix
+## input matrix
 B = read(file, "B")
 
-# state domain
+## state domain
 X = Universe(120)
 
-# input domain
+## input domain
 U = BallInf([0.0, 0.0], 1.0)
 
 function model(X0)
     S = @system(x' = Ax + Bu, x ∈ X, u ∈ U)
-    return IVP(S, X0)
+    return IVP(S, X0)                           
 end
 
-end  # module
+end  #jl
+
+# ## References

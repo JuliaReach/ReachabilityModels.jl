@@ -27,10 +27,10 @@ function _bouncing_ball()
     return HybridSystem(flow, assignment)
 end
 
-function model(X0)                    #jl
-    H = _bouncing_ball()              #jl
-    return @ivp(H, z(0) ∈ X0)         #jl
-end                                   #jl
+function model(X0)
+    H = _bouncing_ball()
+    return @ivp(H, z(0) ∈ X0)
+end                                   
 
 end #jl
 

@@ -1,4 +1,9 @@
-module biomodel9d
+# ## BioModel9d
+
+# ## Model
+
+module biomodel9d   #jl
+
 using ReachabilityAnalysis
 
 @taylorize function biomodel9d!(dx, x, p, t)
@@ -16,6 +21,9 @@ end
 
 function model(X0)
     S = @system(x' = biomodel9d!(x), dim:9)
-    return IVP(S, X0)
+    return IVP(S, X0)                           
 end
-end #module
+
+end #jl
+
+# ## References

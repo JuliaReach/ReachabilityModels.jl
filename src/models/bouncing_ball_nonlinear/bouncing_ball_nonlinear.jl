@@ -49,9 +49,9 @@ function bouncingBallNonlinear_model()
     return S
 end
 
-function model(X0)                                 #jl
-    H = bouncingBallNonlinear_model()              #jl
-    return IVP(H, X0)                              #jl
+function model(X0)
+    H = bouncingBallNonlinear_model()
+    return IVP(H, X0)                              
 end
 
 end #jl

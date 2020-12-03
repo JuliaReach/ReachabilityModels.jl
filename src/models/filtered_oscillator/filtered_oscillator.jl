@@ -1,4 +1,8 @@
-module filtered_oscillator
+# # Filtered Oscillator
+
+# ## Model
+
+module filtered_oscillator      #jl
 
 using ReachabilityAnalysis
 
@@ -114,4 +118,6 @@ function model(X0; n0::Int=4, one_loop_iteration::Bool=false)
     return IVP(H, [(1, X0)])
 end
 
-end # module
+end #jl
+
+# ## References

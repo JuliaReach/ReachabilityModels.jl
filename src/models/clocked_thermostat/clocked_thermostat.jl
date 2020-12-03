@@ -44,9 +44,9 @@ function thermostat_hybrid′()
     return HybridSystem(automaton, modes, resetmaps, [AutonomousSwitching()])
 end
 
-function model(X0)              #jl
-    H = thermostat_hybrid′()    #jl
-return IVP(H, X0)               #jl
+function model(X0)
+    H = thermostat_hybrid′()
+return IVP(H, X0)               
 end
 
 end  #jl
