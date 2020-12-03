@@ -15,7 +15,7 @@ Reexport = "189a3867-3050-52da-a836-e630ba90ab69"
 [compat]
 julia = "1.4, 1.5"
 ModelingToolkit = "3.14, 3.15"
-ReachabilityAnalysis = "0.7, 0.8"
+ReachabilityAnalysis = "0.7, 0.8, 0.9"
 Reexport = "0.2"
 #SpaceExParser. = "0.3"
 
