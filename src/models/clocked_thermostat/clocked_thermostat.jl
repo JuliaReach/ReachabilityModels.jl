@@ -1,4 +1,8 @@
-module clocked_thermostat
+# # Clocked thermostat
+
+# ## Model
+
+module clocked_thermostat #jl
 
 using ReachabilityAnalysis, ModelingToolkit
 
@@ -29,10 +33,10 @@ function thermostat_hybrid′()
     mode2 = thermostat_off′()
     modes = [mode1, mode2]
 
-    # transition on -> off
+    ## transition on -> off
     guard = HalfSpace(t >= t1, var′)
     trans1 = ConstrainedIdentityMap(1, guard)
-    # transition off -> on
+    ## transition off -> on
     guard = HalfSpace(t <= t2, var′)
     trans2 = ConstrainedIdentityMap(1, guard)
     resetmaps = [trans1, trans2]
@@ -40,9 +44,11 @@ function thermostat_hybrid′()
     return HybridSystem(automaton, modes, resetmaps, [AutonomousSwitching()])
 end
 
-function model(X0)
-    H = thermostat_hybrid′()
-    return IVP(H, X0)
+function model(X0)              #jl
+    H = thermostat_hybrid′()    #jl
+return IVP(H, X0)               #jl
 end
 
-end  # module
+end  #jl
+
+# ## References
