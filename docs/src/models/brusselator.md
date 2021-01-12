@@ -2,10 +2,11 @@
 EditURL = "<unknown>/src/models/brusselator/brusselator.jl"
 ```
 
-```@example brusselator
-module brusselator
-using ReachabilityAnalysis
+## Brusselator
 
+## Model
+
+```@example brusselator
 using ReachabilityAnalysis
 
 const A = 1.0
@@ -25,6 +26,7 @@ function model(X0)
     S = @system(x' = brusselator!(x), dim:2)
     return IVP(S, X0)
 end
-end #module
 ```
+
+## References
 

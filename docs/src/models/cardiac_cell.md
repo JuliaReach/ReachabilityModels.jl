@@ -2,8 +2,11 @@
 EditURL = "<unknown>/src/models/cardiac_cell/cardiac_cell.jl"
 ```
 
+# Cardiac cell
+
+## Model
+
 ```@example cardiac_cell
-module cardiac_cell
 using ReachabilityAnalysis, ModelingToolkit
 
 vars = @variables u, v, t
@@ -55,6 +58,7 @@ function model(X0)
     H = cardiac_cell_hybrid()
     return IVP(H, X0)
 end
-end # module
 ```
+
+## References
 

@@ -29,6 +29,11 @@ function _bouncing_ball()
     # initial-value problem
     return HybridSystem(flow, assignment)
 end
+
+function model(X0)
+    H = _bouncing_ball()
+    return @ivp(H, z(0) ∈ X0)
+end
 ```
 
 ## References

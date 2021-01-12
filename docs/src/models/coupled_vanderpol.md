@@ -2,10 +2,11 @@
 EditURL = "<unknown>/src/models/coupled_vanderpol/coupled_vanderpol.jl"
 ```
 
-```@example coupled_vanderpol
-module coupled_vanderpol
-using ReachabilityAnalysis
+## Coupled Van der Pol oscillator
 
+## Model
+
+```@example coupled_vanderpol
 using ReachabilityAnalysis
 
 @taylorize function coupled_vanderpol!(du, u, p, t)
@@ -20,6 +21,7 @@ function model(X0)
     S = @system(x' = coupled_vanderpol!(x), dim:4)
     return IVP(S, X0)
 end
-end #module
 ```
+
+## References
 
