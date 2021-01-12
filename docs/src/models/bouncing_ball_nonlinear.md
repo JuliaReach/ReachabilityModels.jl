@@ -52,6 +52,9 @@ function bouncingBallNonlinear_model()
     return S
 end
 
+function model(X0)
+    H = bouncingBallNonlinear_model()
+    return IVP(H, X0)
 end
 ```
 

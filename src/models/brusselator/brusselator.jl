@@ -2,6 +2,10 @@
 
 # ## Model
 
+# The Brusselator is a two ODEs theoretical model for autocatalytic reactions,
+# where $x$ and $y$ are chemical concentrations:
+
+
 module brusselator      #jl
 
 using ReachabilityAnalysis
@@ -25,5 +29,11 @@ function model(X0)
 end
 
 end #jl
+
+# ## Reachability settings
+
+# ## Results
+
+
 
 # ## References

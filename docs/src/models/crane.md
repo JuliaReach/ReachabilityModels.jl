@@ -2,9 +2,13 @@
 EditURL = "<unknown>/src/models/crane/crane.jl"
 ```
 
+# Crane
+
+## Model
+
 ```@example crane
-module crane
 using ReachabilityAnalysis
+
 A = [ 0.0           1.0               0.0   0.0   0.0           0.0;
      -0.417533     -3.1931759963     39.24  0.0 -14.825331     11.123344;
       0.0           0.0               0.0   1.0   0.0           0.0;
@@ -16,6 +20,7 @@ function model(X0)
     S = @system(x' = Ax)
     return IVP(S, X0)
 end
-end # module
 ```
+
+## References
 

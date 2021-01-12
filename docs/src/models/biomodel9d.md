@@ -2,8 +2,11 @@
 EditURL = "<unknown>/src/models/biomodel9d/biomodel9d.jl"
 ```
 
+## BioModel9d
+
+## Model
+
 ```@example biomodel9d
-module biomodel9d
 using ReachabilityAnalysis
 
 @taylorize function biomodel9d!(dx, x, p, t)
@@ -23,6 +26,7 @@ function model(X0)
     S = @system(x' = biomodel9d!(x), dim:9)
     return IVP(S, X0)
 end
-end #module
 ```
+
+## References
 
