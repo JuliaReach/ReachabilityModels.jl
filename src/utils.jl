@@ -45,24 +45,35 @@ end
 
 """
    @relpath(name)
+
 Return the absolute path to file `name` relative to the executing script.
-### Input
-- `name` -- file name
-### Output
+
+## Input
+
+- `name` -- filename
+
+## Output
+
 A string.
-### Notes
+
+## Notes
+
 This macro is equivalent to `joinpath(@__DIR__, name)`.
 The `@relpath` macro is used in model scripts to load data files relative to the
 location of the model, without having to change the directory of the Julia session.
 For instance, suppose that the folder `/home/projects/models` contains the script
 `my_model.jl`, and suppose that the data file `my_data.dat` located in the same
 directory is required to be loaded by `my_model.jl`.
+
 Then,
+
 ```julia
 # suppose the working directory is /home/julia/ and so we ran the script as
 # julia -e "include("../projects/models/my_model.jl")"
 # in the model file /home/projects/models/my_model.jl we write:
+
 d = open(@relpath "my_data.dat")
+
 # do stuff with d
 ```
 In this example, the macro `@relpath "my_data.dat"` evaluates to the string
