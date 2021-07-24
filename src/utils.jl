@@ -1,12 +1,12 @@
 RM_dir = joinpath(dirname(pathof(ReachabilityModels)), "..")
 
-function fetch_model(instance::AbstractString; kwargs...)
+function load_model(instance::AbstractString; kwargs...)
 
     nakeinstance = replace(instance, Pair(".jl", ""))
     if haskey(kwargs, :X0)
         X0 = kwargs[:X0]
     else
-        X0 = fetch_meta(nakeinstance)["X0"]
+        X0 = load_meta(nakeinstance)["X0"]
     end
     dir = joinpath(RM_dir, "src/models", "$(nakeinstance)/$(nakeinstance).jl")
     if isfile(dir)
@@ -18,7 +18,7 @@ function fetch_model(instance::AbstractString; kwargs...)
     end
 end
 
-function fetch_meta(instance::AbstractString)
+function load_meta(instance::AbstractString)
 
     nakeinstance = replace(instance, Pair(".jl", ""))
 
@@ -31,7 +31,7 @@ function fetch_meta(instance::AbstractString)
     return S
 end
 
-function list(arg, f)
+function list_models(arg, f)
     models = Vector()
     dir = joinpath(RM_dir, "src/models")
     for model in readdir(dir)
@@ -94,10 +94,10 @@ function generate_summary()
 
     ### OVERVIEW
     open(joinpath(dirname(@__FILE__), "../docs/src/overview.md"), "w") do file
-        nmodels = length(list("dim", x->x > 0))
-        nlinear = length(list("linear", x->x == true))
-        nnonlinear = length(list("linear", x->x == false))
-        nhybrid = length(list("hybrid", x->x == true))
+        nmodels = length(list_models("dim", x->x > 0))
+        nlinear = length(list_models("linear", x->x == true))
+        nnonlinear = length(list_models("linear", x->x == false))
+        nhybrid = length(list_models("hybrid", x->x == true))
         print(file, """
                     # Models
                     Here is a table showing the number of models for each type
@@ -112,7 +112,7 @@ function generate_summary()
     ### LINEAR
     open(joinpath(dirname(@__FILE__), "../docs/src/models/linear_overview.md"), "w") do file
         function printrow(model)
-            meta = fetch_meta(model)["info"]
+            meta = load_meta(model)["info"]
             println(file, "| **$(meta["name"])** | $(meta["dim"]) | $(-) | $(-) | $(-) |")
         end
 
@@ -124,7 +124,7 @@ function generate_summary()
                     |:------|----------:|----------:|-----------------:|-------------------:|----------------:|
                     """)
 
-        linear_models = list("linear", x->x == true)
+        linear_models = list_models("linear", x->x == true)
         for model in linear_models
             printrow(model)
         end
@@ -133,7 +133,7 @@ function generate_summary()
     ### NONLINEAR
     open(joinpath(dirname(@__FILE__), "../docs/src/models/nonlinear_overview.md"), "w") do file
         function printrow(model)
-            meta = fetch_meta(model)["info"]
+            meta = load_meta(model)["info"]
             println(file, "| **$(meta["name"])** | $(meta["dim"]) | $(-) | $(-) | $(-) |")
         end
 
@@ -145,7 +145,7 @@ function generate_summary()
                     |:------|----------:|----------:|-----------------:|-------------------:|----------------:|
                     """)
 
-        nonlinear_models = list("linear", x->x == false)
+        nonlinear_models = list_models("linear", x->x == false)
         for model in nonlinear_models
             printrow(model)
         end
@@ -154,7 +154,7 @@ function generate_summary()
     ### HYBRID
     open(joinpath(dirname(@__FILE__), "../docs/src/models/hybrid_overview.md"), "w") do file
         function printrow(model)
-            meta = fetch_meta(model)["info"]
+            meta = load_meta(model)["info"]
             println(file, "| **$(meta["name"])** | $(meta["dim"]) | $(-) | $(-) | $(-) |")
         end
 
@@ -166,7 +166,7 @@ function generate_summary()
                     |:------|----------:|----------:|-----------------:|-------------------:|----------------:|
                     """)
 
-        hybrid_models = list("hybrid", x->x == true)
+        hybrid_models = list_models("hybrid", x->x == true)
         for model in hybrid_models
             printrow(model)
         end
