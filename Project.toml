@@ -1,7 +1,5 @@
 name = "ReachabilityModels"
 uuid = "20aa409e-046b-4a69-a2fd-3a10e4fb9b33"
-authors = ["Marcelo Forets <mforets@gmail.com>",
-           "Sebastian Guadalupe <sebastianguadalupe00@gmail.com>"]
 version = "0.1.0"
 
 [deps]
