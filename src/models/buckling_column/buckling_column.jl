@@ -15,8 +15,8 @@ end
 function model(X0)                                  #jl
     S = @system(x' = buckling_column!(x), dim:2)    #jl
     return IVP(S, X0)                               #jl
-end
+end                                                 #jl
 
-end #jl
+end  #jl
 
 # ## References
