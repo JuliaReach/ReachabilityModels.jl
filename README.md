@@ -1,7 +1,7 @@
 # Reachability Models: A repository of pre-made models for Reachability Analysis and Safety Verification
 
 [![Build Status](https://github.com/JuliaReach/ReachabilityModels.jl/actions/workflows/ci.yml/badge.svg?branch=master)](https://github.com/JuliaReach/ReachabilityModels.jl/actions/workflows/ci.yml?query=branch%3Amaster)
-[![Docs latest](https://img.shields.io/badge/docs-latest-blue.svg)](http://juliareach.github.io/ReachabilityModels.jl/latest/)
+[![Docs latest](https://img.shields.io/badge/docs-latest-blue.svg)](http://juliareach.github.io/ReachabilityModels.jl/dev/)
 [![license](https://img.shields.io/github/license/mashape/apistatus.svg?maxAge=2592000)](https://github.com/JuliaReach/ReachabilityModels.jl/blob/master/LICENSE.md)
 [![Code coverage](http://codecov.io/github/JuliaReach/ReachabilityModels.jl/coverage.svg?branch=master)](https://codecov.io/github/JuliaReach/ReachabilityModels.jl?branch=master)
 [![Join the chat at https://gitter.im/JuliaReach/Lobby](https://badges.gitter.im/JuliaReach/Lobby.svg)](https://gitter.im/JuliaReach/Lobby?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
