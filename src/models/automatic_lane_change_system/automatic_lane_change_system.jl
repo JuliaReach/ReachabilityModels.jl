@@ -85,7 +85,7 @@ end
 end
 
 function acc_model()
-    HA = LightAutomaton(7)
+    HA = GraphAutomaton(7)
 
     ## mode 0
     X = HalfSpace(sx + 10 < 0, vars)

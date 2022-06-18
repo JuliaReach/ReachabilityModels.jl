@@ -25,7 +25,7 @@ end
 function powertrain_control_hybrid()
     n = 4 + 1 # variables
 
-    automaton = LightAutomaton(2)
+    automaton = GraphAutomaton(2)
     add_transition!(automaton, 1, 2, 1)
 
     ## mode 1 "startup"

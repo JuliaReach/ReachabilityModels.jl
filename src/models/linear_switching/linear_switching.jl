@@ -49,7 +49,7 @@ end
 
 function linear_switching_hybrid()
     ## hybrid automaton
-    HA = LightAutomaton(5)
+    HA = GraphAutomaton(5)
 
     ## transition mode 1 → mode 2
     add_transition!(HA, 1, 2, 1)

@@ -5,7 +5,7 @@ using ReachabilityAnalysis, Symbolics
 function _two_tanks()
     var = @variables x1 x2
 
-    HA = LightAutomaton(4)
+    HA = GraphAutomaton(4)
 
     B = hcat([1.0, 1])
     U = Interval(-0.1, 0.1)
