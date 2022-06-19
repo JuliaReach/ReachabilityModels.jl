@@ -25,7 +25,7 @@ function thermostat_off′()
 end
 
 function thermostat_hybrid′()
-    automaton = LightAutomaton(2)
+    automaton = GraphAutomaton(2)
     add_transition!(automaton, 1, 2, 1)
     add_transition!(automaton, 2, 1, 2)
 

@@ -57,7 +57,7 @@ function mode3()
 end
 
 function navigation_system_hybrid()
-    automaton = LightAutomaton(4)
+    automaton = GraphAutomaton(4)
     add_transition!(automaton, 1, 2, 1)
     add_transition!(automaton, 2, 1, 2)
     add_transition!(automaton, 2, 4, 3)

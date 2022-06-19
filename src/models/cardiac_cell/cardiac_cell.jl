@@ -26,7 +26,7 @@ function cardiac_cell_hybrid()
 
     n = 2 + 1 # variables + time
 
-    automaton = LightAutomaton(2)
+    automaton = GraphAutomaton(2)
     add_transition!(automaton, 1, 2, 1)
     add_transition!(automaton, 2, 1, 2)
 

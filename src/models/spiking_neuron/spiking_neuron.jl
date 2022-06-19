@@ -12,7 +12,7 @@ end
 
 function spikingNeuron_model()
     ## hybrid automaton
-    HA = LightAutomaton(1)
+    HA = GraphAutomaton(1)
 
     ## mode 1
     X = HPolyhedron([HalfSpace([1.0, 0.0], 30.0)])  # x1 ≤ 30
