@@ -16,7 +16,7 @@ B = read(file, "B")
 X = Universe(84)
 
 ## input domain
-U = BallInf([0.75], .25)
+U = BallInf([0.75], 0.25)
 
 function model(X0)
     S = @system(x' = Ax + Bu, x ∈ X, u ∈ U)

@@ -5,8 +5,8 @@ using ReachabilityAnalysis, ModelingToolkit
 const var = @variables x, y, v_x, v_y
 
 function mode0()
-    A = [0 0   1    0 ;
-         0 0   0    1 ;
+    A = [0 0   1    0;
+         0 0   0    1;
          0 0 -1.2  0.1;
          0 0  0.1 -1.2]
     B = [0, 0, -0.1, 1.2]
@@ -18,8 +18,8 @@ function mode0()
 end
 
 function mode1()
-    A = [0 0   1    0 ;
-         0 0   0    1 ;
+    A = [0 0   1    0;
+         0 0   0    1;
          0 0 -1.2  0.1;
          0 0  0.1 -1.2]
     B = [0, 0, -4.8, 0.4]
@@ -31,8 +31,8 @@ function mode1()
 end
 
 function mode2()
-    A = [0 0   1    0 ;
-         0 0   0    1 ;
+    A = [0 0   1    0;
+         0 0   0    1;
          0 0 -1.2  0.1;
          0 0  0.1 -1.2]
     B = [0, 0, 2.4, -0.2]
@@ -44,8 +44,8 @@ function mode2()
 end
 
 function mode3()
-    A = [0 0   1    0 ;
-         0 0   0    1 ;
+    A = [0 0   1    0;
+         0 0   0    1;
          0 0 -1.2  0.1;
          0 0  0.1 -1.2]
     B = [0, 0, 3.9, -3.9]

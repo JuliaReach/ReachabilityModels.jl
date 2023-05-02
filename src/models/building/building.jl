@@ -23,7 +23,7 @@ U = BallInf([0.5], 0.3)
 
 function model(X0)
     S = @system(x' = Ax + Bu, x ∈ X, u ∈ U)
-    return IVP(S, X0)                       
+    return IVP(S, X0)
 end
 
 end  #jl

@@ -21,7 +21,7 @@ end
 
 function model(X0)
     S = @system(x' = biomodel9d!(x), dim:9)
-    return IVP(S, X0)                           
+    return IVP(S, X0)
 end
 
 end #jl

@@ -5,8 +5,8 @@ using ReachabilityAnalysis, ModelingToolkit
     local a = 0.02
     local b = 0.2
     local I = 40
-    dx[1] = (0.04*(x[1]*x[1]) + 5*x[1]) + ((140+I)-x[2])
-    dx[2] = a*((b*x[1]) - x[2])
+    dx[1] = (0.04 * (x[1] * x[1]) + 5 * x[1]) + ((140 + I) - x[2])
+    dx[2] = a * ((b * x[1]) - x[2])
     return dx
 end
 
@@ -16,7 +16,7 @@ function spikingNeuron_model()
 
     ## mode 1
     X = HPolyhedron([HalfSpace([1.0, 0.0], 30.0)])  # x1 ≤ 30
-    m1 = @system(x' = flow!(x), dim: 2, x ∈ X)
+    m1 = @system(x' = flow!(x), dim:2, x ∈ X)
 
     ## transition mode 1 → mode 1 (self loop)
     add_transition!(HA, 1, 1, 1)

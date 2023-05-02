@@ -11,7 +11,7 @@ A = [3.0 -9.0;
 
 function model(X0)
     S = @system(x' = Ax)
-    return IVP(S, X0)       
+    return IVP(S, X0)
 end
 
 end #jl
