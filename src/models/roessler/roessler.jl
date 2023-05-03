@@ -5,7 +5,7 @@ using ReachabilityAnalysis
 
     du[1] = -u[2] - u[3]
     du[2] = u[1] + (a * u[2])
-    du[3] = b + (u[3]*(u[1] - c))
+    du[3] = b + (u[3] * (u[1] - c))
 
     return du
 end

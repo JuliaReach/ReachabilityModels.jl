@@ -16,7 +16,7 @@ end
 
 function model(X0)
     S = @system(x' = coupled_vanderpol!(x), dim:4)
-    return IVP(S, X0)                               
+    return IVP(S, X0)
 end
 
 end #jl

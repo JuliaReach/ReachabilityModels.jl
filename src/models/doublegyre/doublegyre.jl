@@ -15,7 +15,7 @@ end
 
 function model(X0)
     S = @system(x' = doublegyre!(x), dim:2)
-    return IVP(S, X0)                           
+    return IVP(S, X0)
 end
 
 end #jl

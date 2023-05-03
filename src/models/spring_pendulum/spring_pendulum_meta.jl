@@ -7,13 +7,9 @@ vθ₀ = Singleton([0.0])
 
 X₀ = r₀ × θ₀ × vr₀ × vθ₀;
 
-Dict([
-    "opts" => Dict(:T=>5.0, :alg=>TMJets(orderT=8, orderQ=2, maxsteps=1_000)),
-    "X0"   => X₀,
-    "info" => Dict(
-        "name" => "spring_pendulum",
-        "dim" => 4,
-        "linear" => false,
-        "hybrid" => false
-    )
-])
+Dict(["opts" => Dict(:T => 5.0, :alg => TMJets(; orderT=8, orderQ=2, maxsteps=1_000)),
+      "X0"   => X₀,
+      "info" => Dict("name" => "spring_pendulum",
+      "dim" => 4,
+      "linear" => false,
+      "hybrid" => false)])

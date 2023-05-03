@@ -14,25 +14,25 @@ function _two_tanks()
     X = HPolyhedron([x1 ≥ -1, x2 ≤ 1], var)
     A = [-1.0 0; 1 0]
     c = [-2.0, 0]
-    m1 = @system(x' = A*x + B*u + c, x ∈ X, u ∈ U)
+    m1 = @system(x' = A * x + B * u + c, x ∈ X, u ∈ U)
 
     ## on/off
     X = HPolyhedron([x2 ≤ 1], var)
     A = [-1.0 0; 1 0]
     c = [3.0, 0]
-    m2 = @system(x' = A*x + B*u + c, x ∈ X, u ∈ U)
+    m2 = @system(x' = A * x + B * u + c, x ∈ X, u ∈ U)
 
     ## off/on
     X = HPolyhedron([x1 ≥ -1, x2 ≥ 0], var)
     A = [-1.0 0; 1 -1]
     c = [-2.0, -5]
-    m3 = @system(x' = A*x + B*u + c, x ∈ X, u ∈ U)
+    m3 = @system(x' = A * x + B * u + c, x ∈ X, u ∈ U)
 
     ## on/on
     X = HPolyhedron([x1 ≤ -1, x2 ≥ 0], var)
     A = [-1.0 0; 1 -1]
     c = [3.0, -5]
-    m4 = @system(x' = A*x + B*u + c, x ∈ X, u ∈ U)
+    m4 = @system(x' = A * x + B * u + c, x ∈ X, u ∈ U)
 
     ## transition off/off -> on/off
     add_transition!(HA, 1, 2, 1)

@@ -30,7 +30,7 @@ end
 function model(X0)
     H = _bouncing_ball()
     return @ivp(H, z(0) ∈ X0)
-end                                   
+end
 
 end #jl
 
