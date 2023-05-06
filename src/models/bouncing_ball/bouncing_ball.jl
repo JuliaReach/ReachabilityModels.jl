@@ -10,7 +10,6 @@ module bouncing_ball #jl
 using ReachabilityAnalysis, ModelingToolkit
 
 function _bouncing_ball()
-
     var = @variables x v
 
     ## "falling" mode with invariant x >= 0

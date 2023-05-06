@@ -1,7 +1,7 @@
 module lorenz
 using ReachabilityAnalysis
 @taylorize function lorenz!(dx, x, params, t)
-    σ, β, ρ = 10.0, 8.0/3.0, 28.0
+    σ, β, ρ = 10.0, 8.0 / 3.0, 28.0
     dx[1] = σ * (x[2] - x[1])
     dx[2] = x[1] * (ρ - x[3]) - x[2]
     dx[3] = x[1] * x[2] - β * x[3]

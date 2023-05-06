@@ -8,13 +8,13 @@ using ReachabilityAnalysis, ModelingToolkit
 
 @taylorize function flow_down!(du, u, params, t)
     du[1] = u[2]
-    du[2] = -9.8 + 0.1*(u[2])^2
+    du[2] = -9.8 + 0.1 * (u[2])^2
     return du
 end
 
 @taylorize function flow_up!(du, u, params, t)
     du[1] = u[2]
-    du[2] = -9.8 - 0.1*(u[2])^2
+    du[2] = -9.8 - 0.1 * (u[2])^2
     return du
 end
 
@@ -26,11 +26,11 @@ function bouncingBallNonlinear_model()
 
     ## mode 1 ("down")
     X = HPolyhedron([x ≥ 0, v ≤ 0], vars)
-    m1 = @system(x' = flow_down!(x), dim: 2, x ∈ X)
+    m1 = @system(x' = flow_down!(x), dim:2, x ∈ X)
 
     ## mode 2 ("up")
     X = HPolyhedron([x ≥ 0, v ≥ 0], vars)
-    m2 = @system(x' = flow_up!(x), dim: 2, x ∈ X)
+    m2 = @system(x' = flow_up!(x), dim:2, x ∈ X)
 
     ## α transition down → up
     add_transition!(HA, 1, 2, 1)
