@@ -16,12 +16,12 @@ const var′ = @variables t t′
 
 function thermostat_on′()
     invariant = HalfSpace(t <= t1, var′)
-    @system(x' = [-B 0; 0 0]*x + [A1, 1], x ∈ invariant)
+    @system(x' = [-B 0; 0 0] * x + [A1, 1], x ∈ invariant)
 end
 
 function thermostat_off′()
     invariant = HalfSpace(t >= t2, var′)
-    @system(x' = [-B 0; 0 0]*x + [A2, 1], x ∈ invariant)
+    @system(x' = [-B 0; 0 0] * x + [A2, 1], x ∈ invariant)
 end
 
 function thermostat_hybrid′()
@@ -46,7 +46,7 @@ end
 
 function model(X0)
     H = thermostat_hybrid′()
-return IVP(H, X0)
+    return IVP(H, X0)
 end
 
 end  #jl

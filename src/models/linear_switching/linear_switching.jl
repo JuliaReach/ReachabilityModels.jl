@@ -10,7 +10,7 @@ m = dim(U)  ## input dimension
 ε = 1e-6  ## auxiliary bloating of guards for ensuring intersection
 
 file = @relpath "SpaceEx/model.xml"
-_model = readsxmodel(file, raw_dict=true)
+_model = readsxmodel(file; raw_dict=true)
 variables = convert.(Basic, [f.args[1].args[1] for f in _model["flows"][1]])
 inputs = [convert(Basic, :u)]
 load_dynamics(loc) = _get_coeffs(_model["flows"][loc], n, m, variables, inputs)
@@ -44,7 +44,7 @@ end
 function mode5()
     A, B, _ = load_dynamics(4)
     X = HalfSpace([-1.0, 0.0, 0.0, 0.0, 0.0], 0.0 + ε)  # x1 ≥ 0
-    q4 = @system(x' = Ax + Bu, x ∈ X, u ∈ U)
+    return q4 = @system(x' = Ax + Bu, x ∈ X, u ∈ U)
 end
 
 function linear_switching_hybrid()
@@ -82,7 +82,8 @@ function linear_switching_hybrid()
     R51 = ConstrainedIdentityMap(5, G)
 
     ## hybrid system
-    return HybridSystem(HA, [mode1(), mode2(), mode3(), mode4(), mode5()], [R12, R23, R34, R45, R51],
+    return HybridSystem(HA, [mode1(), mode2(), mode3(), mode4(), mode5()],
+                        [R12, R23, R34, R45, R51],
                         fill(AutonomousSwitching(), 5))
 end
 

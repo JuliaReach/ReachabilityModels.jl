@@ -23,7 +23,6 @@ end
 end
 
 function cardiac_cell_hybrid()
-
     n = 2 + 1 # variables + time
 
     automaton = GraphAutomaton(2)
@@ -38,7 +37,7 @@ function cardiac_cell_hybrid()
     mode2 = @system(x' = cardiac_cell_off!(x), dim:3, x ∈ invariant)
     modes = [mode1, mode2]
 
-    reset = Dict(n => 0.)
+    reset = Dict(n => 0.0)
 
     ## transition on -> off
     guard = HalfSpace(t >= 5)
