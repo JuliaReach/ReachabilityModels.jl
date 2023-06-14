@@ -12,11 +12,11 @@ for src_dir in src_dirs
         if endswith(dir, ".jl")
             #@warn "ignoring $src_dir/$file"
         else
-            src_path = abspath(joinpath(src_dir, dir, dir*".jl"))
-            text = script(src_path, trgt_dir_test, credit=false)
+            src_path = abspath(joinpath(src_dir, dir, dir * ".jl"))
+            text = script(src_path, trgt_dir_test; credit=false)
             code = strip(read(text, String))
             mdpost(str) = replace(str, "@__CODE__" => code)
-            markdown(src_path, trgt_dir, postprocess=mdpost, credit=false)
+            markdown(src_path, trgt_dir; postprocess=mdpost, credit=false)
         end
     end
 end
