@@ -12,6 +12,6 @@ fetch_meta = load_meta
 export fetch_model, fetch_meta,
        load_model, load_meta,
        list_models,
-       @relpath
+       @modelpath
 
 end # module

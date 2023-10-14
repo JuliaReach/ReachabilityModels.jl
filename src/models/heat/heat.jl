@@ -4,10 +4,9 @@
 
 module heat #jl
 
-using ReachabilityAnalysis, MAT, SparseArrays
-using ReachabilityModels: @relpath
+using ReachabilityModels, MAT, SparseArrays
 
-file = matopen(@relpath "heat.mat")
+file = matopen(@modelpath("heat", "heat.mat"))
 
 ## system matrix
 A = read(file, "A")

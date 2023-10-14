@@ -4,7 +4,7 @@ module pde #jl
 
 using ReachabilityModels, MAT
 
-file = matopen(@relpath "pde.mat")
+file = matopen(@modelpath("pde", "pde.mat"))
 
 ## system matrix
 A = float(read(file, "A"))  # the matrix has Int entries
