@@ -8,7 +8,7 @@ Z0 = α * X0₁ + (1 - α) * X0₂;
 
 Dict(["opts" => Dict(:T => 15.0, :alg => GLGM06(; δ=0.05)),
       "X0"   => Z0,
-      "info" => Dict("name" => "elipse",
+      "info" => Dict("name" => "ellipse",
       "dim" => 2,
       "linear" => true,
       "hybrid" => false)])
