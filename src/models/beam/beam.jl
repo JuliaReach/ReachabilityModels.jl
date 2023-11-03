@@ -6,7 +6,7 @@ module beam #jl
 
 using ReachabilityModels, MAT
 
-file = matopen(@relpath "beam.mat")
+file = matopen(@modelpath("beam", "beam.mat"))
 
 ## system matrix
 A = read(file, "A")

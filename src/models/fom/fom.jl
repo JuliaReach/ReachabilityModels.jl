@@ -1,9 +1,8 @@
 module fom  #jl
 
-using ReachabilityAnalysis, MAT
-using ReachabilityModels: @relpath
+using ReachabilityModels, MAT
 
-file = matopen(@relpath "fom.mat")
+file = matopen(@modelpath("fom", "fom.mat"))
 
 # system matrix
 A = float(read(file, "A"))  # the matrix has Int entries

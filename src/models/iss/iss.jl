@@ -1,9 +1,8 @@
 module iss  #jl
 
-using ReachabilityAnalysis, MAT
-using ReachabilityModels: @relpath
+using ReachabilityModels, MAT
 
-file = matopen(@relpath "iss.mat")
+file = matopen(@modelpath("iss", "iss.mat"))
 
 # system matrix
 A = read(file, "A")

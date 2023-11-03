@@ -1,7 +1,6 @@
 module motor  #jl
 
-using ReachabilityAnalysis, SparseArrays
-using ReachabilityModels: @relpath
+using ReachabilityModels, SparseArrays
 
 # system matrix
 I = [1, 2, 2, 3, 3, 3, 3, 4, 5, 6, 6, 7, 7, 7, 7, 8]

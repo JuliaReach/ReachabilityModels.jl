@@ -1,9 +1,8 @@
 module mna5  #jl
 
-using ReachabilityAnalysis, MAT, SparseArrays
-using ReachabilityModels: @relpath
+using ReachabilityModels, MAT, SparseArrays
 
-file = matopen(@relpath "mna5.mat")
+file = matopen(@modelpath("mna5", "mna5.mat"))
 
 # system matrix
 A = sparse(read(file, "A"))
