@@ -1,8 +1,8 @@
-# # Elipse
+# # Ellipse
 
 # ## Model
 
-module elipse   #jl
+module ellipse   #jl
 
 using ReachabilityAnalysis
 
