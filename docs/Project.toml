@@ -13,5 +13,6 @@ Symbolics = "0c5d862f-8b57-4792-8d23-62f2024744c7"
 [compat]
 Documenter = "1"
 Literate = "2"
+ModelingToolkit = "8"
 Plots = "1"
 SymEngine = "0.8 - 0.10"
