@@ -19,6 +19,7 @@ for model in readdir(source_dir)
         Literate.markdown(input, target_dir; postprocess=mdpost, credit=false)
     else
         # for the local build, one needs to set `nbviewer_root_url`
-        Literate.markdown(input, target_dir; postprocess=mdpost, credit=false, nbviewer_root_url="..")
+        Literate.markdown(input, target_dir; postprocess=mdpost, credit=false,
+                          nbviewer_root_url="..")
     end
 end
