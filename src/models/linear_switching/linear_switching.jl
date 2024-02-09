@@ -1,13 +1,14 @@
 module linear_switching
 
-using ReachabilityModels, ModelingToolkit, SymEngine
+using ReachabilityModels, ModelingToolkit, SymEngine, ReachabilityBase.CurrentPath
 using SpaceExParser: readsxmodel, _get_coeffs
+
 n = 5  ## state dimension
 U = Interval(-1.0, 1.0)  ## common input domain
 m = dim(U)  ## input dimension
 ε = 1e-6  ## auxiliary bloating of guards for ensuring intersection
 
-file = @modelpath("linear_switching", "SpaceEx/model.xml")
+file = @current_path("linear_switching", "SpaceEx/model.xml")
 _model = readsxmodel(file; raw_dict=true)
 variables = convert.(Basic, [f.args[1].args[1] for f in _model["flows"][1]])
 inputs = [convert(Basic, :u)]

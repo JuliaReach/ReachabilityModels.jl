@@ -4,9 +4,9 @@
 
 module building #jl
 
-using ReachabilityModels, MAT
+using ReachabilityModels, MAT, ReachabilityBase.CurrentPath
 
-file = matopen(@modelpath("building", "building.mat"))
+file = matopen(@current_path("building", "building.mat"))
 
 ## system matrix
 A = read(file, "A")

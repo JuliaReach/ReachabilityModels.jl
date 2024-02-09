@@ -2,6 +2,7 @@ module ReachabilityModels
 
 using Reexport
 @reexport using ReachabilityAnalysis
+@reexport using ReachabilityBase.CurrentPath: @current_path
 
 include("utils.jl")
 
@@ -11,7 +12,6 @@ fetch_meta = load_meta
 
 export fetch_model, fetch_meta,
        load_model, load_meta,
-       list_models,
-       @modelpath
+       list_models
 
-end # module
+end  # module

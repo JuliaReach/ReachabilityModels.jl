@@ -1,8 +1,8 @@
 module fom  #jl
 
-using ReachabilityModels, MAT
+using ReachabilityModels, MAT, ReachabilityBase.CurrentPath
 
-file = matopen(@modelpath("fom", "fom.mat"))
+file = matopen(@current_path("fom", "fom.mat"))
 
 # system matrix
 A = float(read(file, "A"))  # the matrix has Int entries

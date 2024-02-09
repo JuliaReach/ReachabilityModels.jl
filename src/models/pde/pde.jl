@@ -2,9 +2,9 @@
 
 module pde #jl
 
-using ReachabilityModels, MAT
+using ReachabilityModels, MAT, ReachabilityBase.CurrentPath
 
-file = matopen(@modelpath("pde", "pde.mat"))
+file = matopen(@current_path("pde", "pde.mat"))
 
 ## system matrix
 A = float(read(file, "A"))  # the matrix has Int entries
