@@ -1,20 +1,24 @@
 import Literate
-using Literate: script, markdown
 import ReachabilityModels: @modelpath
 
-src_dir = joinpath(@__DIR__, "..", "src", "models")
+source_dir = joinpath(@__DIR__, "..", "src", "models")
+target_dir = joinpath(@__DIR__, "src", "models")
+mkpath(target_dir)
 
-trgt_dir = joinpath(@__DIR__, "src", "models")
-mkpath(trgt_dir)
-
+# overwrite to use the correct model path
 macro modelpath(model_path::String, name::String)
-    return joinpath(src_dir, model_path, name)
+    return joinpath(source_dir, model_path, name)
 end
 
-for dir in readdir(src_dir)
-    src_path = abspath(joinpath(src_dir, dir, dir * ".jl"))
-    text = script(src_path, trgt_dir; credit=false)
-    code = strip(read(text, String))
+for model in readdir(source_dir)
+    input = abspath(joinpath(source_dir, model, model * ".jl"))
+    script = Literate.script(input, target_dir; credit=false)
+    code = strip(read(script, String))
     mdpost(str) = replace(str, "@__CODE__" => code)
-    markdown(src_path, trgt_dir; postprocess=mdpost, credit=false)
+    if get(ENV, "DOCUMENTATIONGENERATOR", "") == "true"
+        Literate.markdown(input, target_dir; postprocess=mdpost, credit=false)
+    else
+        # for the local build, one needs to set `nbviewer_root_url`
+        Literate.markdown(input, target_dir; postprocess=mdpost, credit=false, nbviewer_root_url="..")
+    end
 end
