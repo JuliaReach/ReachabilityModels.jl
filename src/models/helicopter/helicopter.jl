@@ -9,9 +9,9 @@
 
 module helicopter #jl
 
-using ReachabilityModels, MAT
+using ReachabilityModels, MAT, ReachabilityBase.CurrentPath
 
-file = matopen(@modelpath("helicopter", "sx/heli.mat"))
+file = matopen(@current_path("helicopter", "sx/heli.mat"))
 
 # system matrix
 A = read(file, "A")

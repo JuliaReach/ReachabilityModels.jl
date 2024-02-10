@@ -4,9 +4,9 @@
 
 module cdplayer #jl
 
-using ReachabilityModels, MAT
+using ReachabilityModels, MAT, ReachabilityBase.CurrentPath
 
-file = matopen(@modelpath("cdplayer", "cdplayer.mat"))
+file = matopen(@current_path("cdplayer", "cdplayer.mat"))
 
 ## system matrix
 A = read(file, "A")

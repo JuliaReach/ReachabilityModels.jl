@@ -4,9 +4,9 @@
 
 module heat #jl
 
-using ReachabilityModels, MAT, SparseArrays
+using ReachabilityModels, MAT, SparseArrays, ReachabilityBase.CurrentPath
 
-file = matopen(@modelpath("heat", "heat.mat"))
+file = matopen(@current_path("heat", "heat.mat"))
 
 ## system matrix
 A = read(file, "A")
