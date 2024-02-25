@@ -3,7 +3,7 @@
 # ## Model
 
 # The Brusselator is a two ODEs theoretical model for autocatalytic reactions,
-# where $x$ and $y$ are chemical concentrations:
+# where ``x`` and ``y`` are chemical concentrations:
 
 module brusselator      #jl
 
