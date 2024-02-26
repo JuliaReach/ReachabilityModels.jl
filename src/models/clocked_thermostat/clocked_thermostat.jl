@@ -41,7 +41,7 @@ function thermostat_hybrid′()
     trans2 = ConstrainedIdentityMap(1, guard)
     resetmaps = [trans1, trans2]
 
-    return HybridSystem(automaton, modes, resetmaps, [AutonomousSwitching()])
+    return HybridSystems.HybridSystem(automaton, modes, resetmaps, [AutonomousSwitching()])
 end
 
 function model(X0)

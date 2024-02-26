@@ -95,7 +95,7 @@ function navigation_system_hybrid()
     trans8 = ConstrainedIdentityMap(4, guard)
     resetmaps = [trans1, trans2, trans3, trans4, trans5, trans6, trans7, trans8]
 
-    return HybridSystem(automaton, modes, resetmaps, [AutonomousSwitching()])
+    return HybridSystems.HybridSystem(automaton, modes, resetmaps, [AutonomousSwitching()])
 end
 
 function model(X0)

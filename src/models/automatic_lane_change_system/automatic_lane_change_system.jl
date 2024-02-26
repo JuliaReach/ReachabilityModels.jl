@@ -150,7 +150,7 @@ function acc_model()
     resets = [R0, R1, R2, R3, R4, R5]
 
     ## hybrid system
-    S = HybridSystem(HA, modes, resets, fill(AutonomousSwitching(), 6))
+    S = HybridSystems.HybridSystem(HA, modes, resets, fill(AutonomousSwitching(), 6))
 
     return S
 end

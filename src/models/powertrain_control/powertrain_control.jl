@@ -85,7 +85,7 @@ function powertrain_control_hybrid()
     trans1 = ConstrainedResetMap(n, guard, reset)
     resetmaps = [trans1]
 
-    return HybridSystem(automaton, modes, resetmaps, [AutonomousSwitching()])
+    return HybridSystems.HybridSystem(automaton, modes, resetmaps, [AutonomousSwitching()])
 end
 
 function model(X0)

@@ -44,7 +44,7 @@ function bouncingBallNonlinear_model()
     Rβ = ConstrainedIdentityMap(2, G)
 
     ## hybrid system
-    S = HybridSystem(HA, [m1, m2], [Rα, Rβ], fill(AutonomousSwitching(), 2))
+    S = HybridSystems.HybridSystem(HA, [m1, m2], [Rα, Rβ], fill(AutonomousSwitching(), 2))
 
     return S
 end
