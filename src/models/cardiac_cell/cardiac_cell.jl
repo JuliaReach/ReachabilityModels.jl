@@ -47,7 +47,7 @@ function cardiac_cell_hybrid()
     trans2 = ConstrainedResetMap(n, guard, reset)
     resetmaps = [trans1, trans2]
 
-    return HybridSystem(automaton, modes, resetmaps, [AutonomousSwitching()])
+    return HybridSystems.HybridSystem(automaton, modes, resetmaps, [AutonomousSwitching()])
 end
 
 function model(X0)

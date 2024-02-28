@@ -108,7 +108,7 @@ function filtered_oscillator_hybrid(n0, one_loop_iteration)
     ## switchings
     s = [HybridSystems.AutonomousSwitching()]
 
-    return HybridSystem(a, m, r, s)
+    return HybridSystems.HybridSystem(a, m, r, s)
 end
 
 function model(X0; n0::Int=4, one_loop_iteration::Bool=false)

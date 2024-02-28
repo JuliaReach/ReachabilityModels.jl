@@ -26,7 +26,7 @@ function spikingNeuron_model()
     R11 = ConstrainedAffineMap(A, b, G)  # x1 := -65, x2 := x2 + 8
 
     ## hybrid system
-    S = HybridSystem(HA, [m1], [R11], [AutonomousSwitching()])
+    S = HybridSystems.HybridSystem(HA, [m1], [R11], [AutonomousSwitching()])
 
     return S
 end
