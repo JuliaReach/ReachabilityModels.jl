@@ -1,11 +1,13 @@
 # ReachabilityModels.jl
 
-| **Documentation** | **Community** | **License** |
-|:-----------------:|:-------------:|:-----------:|
-| [![docs-dev][dev-img]][dev-url] | [![zulip][chat-img]][chat-url] | [![license][lic-img]][lic-url] |
+| **Documentation** | **Status** | **Community** | **License** |
+|:-----------------:|:----------:|:-------------:|:-----------:|
+| [![docs-dev][dev-img]][dev-url] | [![aqua][aqua-img]][aqua-url] | [![zulip][chat-img]][chat-url] | [![license][lic-img]][lic-url] |
 
 [dev-img]: https://img.shields.io/badge/docs-latest-blue.svg
 [dev-url]: https://juliareach.github.io/ReachabilityModels.jl/dev/
+[aqua-img]: https://raw.githubusercontent.com/JuliaTesting/Aqua.jl/master/badge.svg
+[aqua-url]: https://github.com/JuliaTesting/Aqua.jl
 [chat-img]: https://img.shields.io/badge/zulip-join_chat-brightgreen.svg
 [chat-url]: https://julialang.zulipchat.com/#narrow/stream/278609-juliareach
 [lic-img]: https://img.shields.io/github/license/mashape/apistatus.svg
