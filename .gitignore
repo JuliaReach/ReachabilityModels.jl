@@ -20,5 +20,5 @@ docs/site/
 
 Manifest.toml
 
-/docs/src/models/
-docs/src/overview.md
+docs/src/models/
+docs/src/overview*
