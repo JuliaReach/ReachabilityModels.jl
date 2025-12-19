@@ -1,4 +1,7 @@
+ENV["GKSwstype"] = "100"  # prevent plots from opening interactively
+
 using Documenter, ReachabilityModels
+import Plots
 using ReachabilityModels: generate_summary
 
 DocMeta.setdocmeta!(ReachabilityModels, :DocTestSetup,
