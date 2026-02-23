@@ -11,7 +11,7 @@ SparseArrays = "2f01184e-e22b-5df5-ae63-d93ebab69eaf"
 [compat]
 Documenter = "1"
 Literate = "2"
-MAT = "0.10"
+MAT = "0.10, 0.11"
 ModelingToolkit = "8, 9, 10"
 Plots = "1"
 ReachabilityAnalysis = "0.22 - 0.28"
