@@ -9,7 +9,7 @@ Reexport = "189a3867-3050-52da-a836-e630ba90ab69"
 SparseArrays = "2f01184e-e22b-5df5-ae63-d93ebab69eaf"
 
 [compat]
-ReachabilityAnalysis = "0.18.6 - 0.28"
+ReachabilityAnalysis = "0.18.6 - 0.28, 0.30"
 ReachabilityBase = "0.2.3 - 0.3"
 Reexport = "1"
 SparseArrays = "<0.0.1, 1.6"
