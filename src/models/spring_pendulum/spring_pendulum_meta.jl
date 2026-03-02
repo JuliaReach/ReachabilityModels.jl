@@ -5,7 +5,7 @@ r₀ = Interval(1.19, 1.21)
 vr₀ = Singleton([0.0])
 vθ₀ = Singleton([0.0])
 
-X₀ = r₀ × θ₀ × vr₀ × vθ₀;
+X₀ = Hyperrectangle([1.2, 0.5, 0, 0], [0.01, 0.01, 0, 0]);
 
 Dict(["opts" => Dict(:T => 5.0, :alg => TMJets(; orderT=8, orderQ=2, maxsteps=1_000)),
       "X0"   => X₀,
